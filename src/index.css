@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Geist+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 80 20% 98%;
+    --foreground: 160 10% 12%;
+
+    --card: 80 20% 98%;
+    --card-foreground: 160 10% 12%;
+
+    --popover: 80 20% 98%;
+    --popover-foreground: 160 10% 12%;
+
+    --primary: 97 53% 30%;
+    --primary-foreground: 80 20% 98%;
+
+    --secondary: 145 15% 90%;
+    --secondary-foreground: 160 10% 12%;
+
+    --muted: 145 10% 92%;
+    --muted-foreground: 160 6% 45%;
+
+    --accent: 145 15% 90%;
+    --accent-foreground: 160 10% 12%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 0%;
+    --input: 145 10% 88%;
+    --ring: 97 53% 30%;
+
+    --radius: 1.5rem;
+
+    --shadow-card: 0 0 0 1px rgba(0,0,0,.04), 0 2px 4px rgba(0,0,0,.02), 0 8px 16px rgba(0,0,0,.04);
+    --shadow-elevated: 0 0 0 1px rgba(0,0,0,.04), 0 4px 8px rgba(0,0,0,.04), 0 16px 32px rgba(0,0,0,.06);
+  }
+
+  .dark {
+    --background: 160 10% 8%;
+    --foreground: 80 20% 96%;
+    --card: 160 10% 10%;
+    --card-foreground: 80 20% 96%;
+    --popover: 160 10% 10%;
+    --popover-foreground: 80 20% 96%;
+    --primary: 97 53% 45%;
+    --primary-foreground: 160 10% 8%;
+    --secondary: 160 10% 15%;
+    --secondary-foreground: 80 20% 96%;
+    --muted: 160 8% 18%;
+    --muted-foreground: 160 6% 55%;
+    --accent: 160 10% 15%;
+    --accent-foreground: 80 20% 96%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 0% 100%;
+    --input: 160 10% 20%;
+    --ring: 97 53% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border/[0.08];
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', serif;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Fraunces', serif;
+  }
+  .font-mono {
+    font-family: 'Geist Mono', monospace;
+  }
+}
