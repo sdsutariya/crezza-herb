@@ -45,15 +45,20 @@ const HerbariumSection = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ delay: 0.1 + i * 0.08, duration: 0.7, ease }}
             whileHover={{ y: -6 }}
-            className="group p-4 bg-accent/30 rounded-[20px] transition-all duration-500 hover:bg-accent hover:shadow-card cursor-default overflow-hidden"
+            className="group p-4 bg-accent/30 rounded-[20px] transition-all duration-500 hover:bg-accent hover:shadow-card hover:-translate-y-1 cursor-default overflow-hidden"
           >
-            <div className="aspect-square rounded-2xl overflow-hidden mb-4">
+            <div className="aspect-square rounded-2xl overflow-hidden mb-4 relative">
               <img
                 src={item.image}
                 alt={item.name}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl flex items-end p-3">
+                <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-white/90 font-medium">
+                  {item.name}
+                </span>
+              </div>
             </div>
             <span className="font-mono text-xs uppercase tracking-[0.1em] text-primary block mb-2">
               {item.name}

@@ -99,7 +99,7 @@ const HeroSection = () => {
             className="w-full h-full object-cover"
           />
           {/* Overlays for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f0a]/90 via-[#0f0f0a]/60 to-[#0f0f0a]/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f0f0a]/95 via-[#0f0f0a]/70 to-[#0f0f0a]/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f0a] via-[#0f0f0a]/20 to-[#0f0f0a]/50" />
         </motion.div>
       </AnimatePresence>
@@ -110,27 +110,46 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative flex-1 flex flex-col justify-center px-6 md:px-16 lg:px-24 pt-24 pb-20">
         <div className="max-w-7xl w-full mx-auto flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+
           {/* Left: Text */}
-          <div className="flex-1 max-w-2xl">
-            {/* Trust badges */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.7, ease }}
-              className="flex flex-wrap gap-2 mb-8"
-            >
-              {trustBadges.map((badge) => (
-                <div
-                  key={badge.label}
-                  className="flex items-center gap-1.5 bg-white/[0.06] backdrop-blur-md rounded-full px-3 py-1.5 border border-white/[0.08]"
-                >
-                  <badge.icon className="w-3 h-3 text-[#c8a860]" />
-                  <span className="font-mono text-[8px] md:text-[9px] uppercase tracking-[0.15em] text-white/60">
-                    {badge.label}
-                  </span>
-                </div>
-              ))}
-            </motion.div>
+          <div className="flex-1 max-w-2xl w-full">
+            {/* Mobile: trust badges + bottle row */}
+            <div className="flex items-start justify-between gap-4 mb-6 lg:mb-0">
+              {/* Trust badges */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.7, ease }}
+                className="flex flex-wrap gap-2 mb-0 lg:mb-8 flex-1"
+              >
+                {trustBadges.map((badge) => (
+                  <div
+                    key={badge.label}
+                    className="flex items-center gap-1.5 bg-white/[0.06] backdrop-blur-md rounded-full px-3 py-1.5 border border-white/[0.08]"
+                  >
+                    <badge.icon className="w-3 h-3 text-[#c8a860]" />
+                    <span className="font-mono text-[8px] md:text-[9px] uppercase tracking-[0.15em] text-white/60">
+                      {badge.label}
+                    </span>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* Bottle — visible on mobile/tablet, hidden on lg (shown separately) */}
+              <motion.div
+                initial={{ scale: 0.85, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: 0.5, duration: 1.0, ease }}
+                className="relative flex-shrink-0 lg:hidden ml-4"
+              >
+                <div className="absolute inset-0 bg-[#c8a860]/15 rounded-full blur-[40px]" />
+                <img
+                  src={bottleImg}
+                  alt="CrezzaHerb Herbal Hair Oil bottle"
+                  className="relative w-24 sm:w-32 object-contain drop-shadow-[0_12px_30px_rgba(200,168,96,0.3)]"
+                />
+              </motion.div>
+            </div>
 
             {/* Slide tag */}
             <AnimatePresence mode="wait">
@@ -141,6 +160,7 @@ const HeroSection = () => {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.5, ease }}
+                className="mt-4 lg:mt-0"
               >
                 <span className="inline-block font-mono text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#c8a860] mb-5 border border-[#c8a860]/25 px-5 py-2 rounded-full bg-[#c8a860]/[0.06]">
                   {slide.tag}
@@ -157,7 +177,7 @@ const HeroSection = () => {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.6, delay: 0.08, ease }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white mb-6 tracking-tight whitespace-pre-line"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white mb-6 tracking-tight sm:whitespace-pre-line"
                 style={{ lineHeight: 1 }}
               >
                 {slide.headline}
@@ -173,7 +193,7 @@ const HeroSection = () => {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.5, delay: 0.16, ease }}
-                className="text-sm md:text-base text-white/55 max-w-lg mb-8 leading-relaxed"
+                className="text-sm md:text-base text-white/70 max-w-lg mb-8 leading-relaxed"
               >
                 {slide.description}
               </motion.p>
@@ -200,14 +220,14 @@ const HeroSection = () => {
                   ))}
                   <span className="text-white/80 text-xs ml-1.5 font-mono">4.9/5</span>
                 </div>
-                <span className="font-mono text-[9px] text-white/40 tracking-[0.12em] uppercase">
+                <span className="font-mono text-[9px] text-white/50 tracking-[0.12em] uppercase">
                   Free shipping · COD available
                 </span>
               </div>
             </motion.div>
           </div>
 
-          {/* Right: Bottle */}
+          {/* Right: Bottle — desktop only */}
           <motion.div
             initial={{ scale: 0.85, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -224,19 +244,19 @@ const HeroSection = () => {
         </div>
 
         {/* Slider controls */}
-        <div className="max-w-7xl w-full mx-auto mt-12 flex items-center gap-6">
+        <div className="max-w-7xl w-full mx-auto mt-10 flex items-center gap-4 sm:gap-6">
           {/* Arrows */}
           <div className="flex items-center gap-2">
             <button
               onClick={prev}
-              className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all hover:bg-white/[0.05]"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all hover:bg-white/[0.05]"
               aria-label="Previous slide"
             >
               <ChevronLeft className="w-4 h-4" />
             </button>
             <button
               onClick={next}
-              className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all hover:bg-white/[0.05]"
+              className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/30 transition-all hover:bg-white/[0.05]"
               aria-label="Next slide"
             >
               <ChevronRight className="w-4 h-4" />
@@ -244,18 +264,18 @@ const HeroSection = () => {
           </div>
 
           {/* Dots with labels */}
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4 sm:gap-6">
             {slides.map((s, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}
-                className="flex items-center gap-3 group"
+                className="flex items-center gap-2 sm:gap-3 group"
               >
                 <div
                   className={`h-[2px] transition-all duration-500 ${
                     i === current
-                      ? "w-10 bg-[#c8a860]"
-                      : "w-5 bg-white/20 group-hover:bg-white/40"
+                      ? "w-8 sm:w-10 bg-[#c8a860]"
+                      : "w-4 sm:w-5 bg-white/20 group-hover:bg-white/40"
                   }`}
                 />
                 <span
@@ -269,8 +289,8 @@ const HeroSection = () => {
             ))}
           </div>
 
-          {/* Slide counter */}
-          <span className="ml-auto font-mono text-xs text-white/30">
+          {/* Slide counter — hidden on very small screens */}
+          <span className="ml-auto font-mono text-xs text-white/30 hidden sm:inline">
             <span className="text-[#c8a860]">{String(current + 1).padStart(2, "0")}</span>
             {" / "}
             {String(slides.length).padStart(2, "0")}
@@ -286,9 +306,9 @@ const HeroSection = () => {
             { value: "14", label: "Day Slow Infusion" },
             { value: "12+", label: "Natural Herbs" },
           ].map((stat) => (
-            <div key={stat.label} className="text-center py-6 md:py-8">
+            <div key={stat.label} className="text-center py-5 md:py-8">
               <p className="text-2xl md:text-4xl font-serif text-white tracking-tight">{stat.value}</p>
-              <p className="font-mono text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-white/40 mt-1">
+              <p className="font-mono text-[10px] md:text-[11px] uppercase tracking-[0.2em] text-white/55 mt-1">
                 {stat.label}
               </p>
             </div>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -55,12 +55,13 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="py-16 md:py-24 px-6 bg-accent/20">
       <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-12">
         <motion.div
           initial={{ y: 16, opacity: 0, filter: "blur(4px)" }}
           whileInView={{ y: 0, opacity: 1, filter: "blur(0px)" }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease }}
-          className="space-y-4 mb-12 text-center"
+          className="space-y-4 text-center sm:text-left flex-1"
         >
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
             Real Stories
@@ -68,10 +69,29 @@ const TestimonialsSection = () => {
           <h2 className="text-3xl md:text-5xl font-serif text-foreground">
             Loved by Thousands
           </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto leading-relaxed text-sm">
+          <p className="text-muted-foreground max-w-lg mx-auto sm:mx-0 leading-relaxed text-sm">
             Don't just take our word for it — hear from people who transformed their hair with CrezzaHerb.
           </p>
         </motion.div>
+
+        {/* Desktop scroll arrows */}
+        <div className="hidden md:flex items-center gap-2 flex-shrink-0">
+          <button
+            onClick={() => scrollRef.current?.scrollBy({ left: -380, behavior: "smooth" })}
+            className="w-10 h-10 rounded-full border border-border/40 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-border hover:bg-accent transition-all"
+            aria-label="Scroll left"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+          <button
+            onClick={() => scrollRef.current?.scrollBy({ left: 380, behavior: "smooth" })}
+            className="w-10 h-10 rounded-full border border-border/40 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-border hover:bg-accent transition-all"
+            aria-label="Scroll right"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
+        </div>
+        </div>
 
         {/* Horizontal scroll container */}
         <div

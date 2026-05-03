@@ -10,6 +10,7 @@ import type { Session } from "@supabase/supabase-js";
 const Navbar = () => {
   const [session, setSession] = useState<Session | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,6 +19,12 @@ const Navbar = () => {
     });
     supabase.auth.getSession().then(({ data: { session } }) => setSession(session));
     return () => subscription.unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const handleLogout = async () => {
@@ -30,7 +37,11 @@ const Navbar = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.2, 0, 0, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-background/80 border-b border-border/[0.08]"
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b transition-all duration-300 ${
+        scrolled
+          ? "bg-background/95 border-border/20 shadow-sm"
+          : "bg-background/80 border-border/[0.08]"
+      }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="font-serif text-xl tracking-tight text-foreground">
@@ -87,21 +98,45 @@ const Navbar = () => {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden px-6 pb-6 space-y-4 bg-background/95 backdrop-blur-xl border-b border-border/[0.08]"
+          className="md:hidden bg-background/98 backdrop-blur-xl border-b border-border/[0.08] divide-y divide-border/10"
         >
-          <a href="/#results" onClick={() => setMobileOpen(false)} className="block font-mono text-xs uppercase tracking-widest text-muted-foreground">Results</a>
-          <a href="/#herbarium" onClick={() => setMobileOpen(false)} className="block font-mono text-xs uppercase tracking-widest text-muted-foreground">Ingredients</a>
-          <a href="/#process" onClick={() => setMobileOpen(false)} className="block font-mono text-xs uppercase tracking-widest text-muted-foreground">Process</a>
-          <a href="/#testimonials" onClick={() => setMobileOpen(false)} className="block font-mono text-xs uppercase tracking-widest text-muted-foreground">Reviews</a>
+          {[
+            { href: "/#results", label: "Results" },
+            { href: "/#herbarium", label: "Ingredients" },
+            { href: "/#process", label: "Process" },
+            { href: "/#testimonials", label: "Reviews" },
+          ].map(({ href, label }) => (
+            <a
+              key={label}
+              href={href}
+              onClick={() => setMobileOpen(false)}
+              className="block px-6 py-4 font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground hover:bg-accent/30 transition-colors"
+            >
+              {label}
+            </a>
+          ))}
           {session ? (
             <>
-              <Link to="/orders" onClick={() => setMobileOpen(false)} className="block font-mono text-xs uppercase tracking-widest text-muted-foreground">My Orders</Link>
-              <button onClick={() => { handleLogout(); setMobileOpen(false); }} className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              <Link
+                to="/orders"
+                onClick={() => setMobileOpen(false)}
+                className="block px-6 py-4 font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground hover:bg-accent/30 transition-colors"
+              >
+                My Orders
+              </Link>
+              <button
+                onClick={() => { handleLogout(); setMobileOpen(false); }}
+                className="block w-full text-left px-6 py-4 font-mono text-xs uppercase tracking-widest text-muted-foreground hover:text-foreground hover:bg-accent/30 transition-colors"
+              >
                 Sign Out
               </button>
             </>
           ) : (
-            <Link to="/auth" onClick={() => setMobileOpen(false)} className="font-mono text-xs uppercase tracking-widest text-primary">
+            <Link
+              to="/auth"
+              onClick={() => setMobileOpen(false)}
+              className="block px-6 py-4 font-mono text-xs uppercase tracking-widest text-primary hover:bg-primary/5 transition-colors"
+            >
               Sign In
             </Link>
           )}

@@ -66,9 +66,9 @@ const BenefitsSection = () => {
               whileInView={{ y: 0, opacity: 1, filter: "blur(0px)" }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: i * 0.08, duration: 0.7, ease }}
-              className="group bg-card rounded-[20px] p-8 shadow-card hover:shadow-elevated transition-shadow duration-500"
+              className="group bg-card rounded-[20px] p-8 shadow-card hover:shadow-elevated hover:-translate-y-1 hover:border-primary/20 border border-transparent transition-all duration-500"
             >
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/15 transition-colors">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                 <b.icon className="w-5 h-5 text-primary" />
               </div>
               <h3 className="font-serif text-lg text-foreground mb-2">{b.title}</h3>

@@ -5,13 +5,21 @@ const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const CTABanner = () => {
   return (
-    <section className="py-16 md:py-24 px-6 bg-primary text-primary-foreground">
+    <section className="relative py-16 md:py-24 px-6 bg-primary text-primary-foreground overflow-hidden">
+      {/* Radial glow accents */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-white/[0.07] rounded-full blur-[80px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-black/[0.12] rounded-full blur-[60px] pointer-events-none" />
+      {/* Faint dot-grid pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.04]"
+        style={{ backgroundImage: "radial-gradient(circle, currentColor 1px, transparent 1px)", backgroundSize: "28px 28px" }}
+      />
       <motion.div
         initial={{ y: 20, opacity: 0, filter: "blur(4px)" }}
         whileInView={{ y: 0, opacity: 1, filter: "blur(0px)" }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease }}
-        className="max-w-4xl mx-auto text-center space-y-8"
+        className="relative max-w-4xl mx-auto text-center space-y-8"
       >
         <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif leading-tight">
           Your Hair Deserves

@@ -63,9 +63,9 @@ const ResultsSection = () => {
       </motion.div>
 
       {/* Phases */}
-      <div className="space-y-36">
+      <div className="space-y-20 md:space-y-36">
         {phases.map((phase) => (
-          <div key={phase.title} className="space-y-20">
+          <div key={phase.title} className="space-y-14 md:space-y-20">
             {/* Phase Header */}
             <motion.div
               initial={{ y: 12, opacity: 0 }}
@@ -79,11 +79,11 @@ const ResultsSection = () => {
               </span>
               <div className="h-px flex-1 bg-border/30" />
               <h3 className="text-xl md:text-3xl font-serif text-foreground">{phase.title}</h3>
-              <div className="h-px flex-1 bg-border/30" />
+              <div className="h-px flex-1 bg-border/30 hidden md:block" />
             </motion.div>
 
             {/* Steps */}
-            <div className="space-y-24">
+            <div className="space-y-14 md:space-y-24">
               {phase.steps.map((step, i) => (
                 <motion.div
                   key={step.week}

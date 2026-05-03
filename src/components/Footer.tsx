@@ -13,8 +13,8 @@ const Footer = () => {
         transition={{ duration: 0.7, ease }}
         className="max-w-6xl mx-auto"
       >
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-          <div className="md:col-span-2 space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+          <div className="sm:col-span-2 md:col-span-2 space-y-4">
             <span className="font-serif text-3xl text-foreground">CrezzaHerb</span>
             <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
               Rooted in Ayurvedic tradition, refined for modern results. Our flagship herbal hair oil is handcrafted with a 14-day slow infusion process using 100% natural ingredients.
