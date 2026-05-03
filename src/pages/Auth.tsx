@@ -34,10 +34,16 @@ const Auth = () => {
           options: { data: { full_name: name }, emailRedirectTo: window.location.origin },
         });
         if (error) throw error;
-        toast({ title: "Account created!", description: "Check your email to verify your account." });
+        toast({ title: "Account created!", description: "Verify your email, then sign in below." });
+        setName("");
+        setIsLogin(true);
       }
     } catch (error: any) {
-      toast({ title: "Error", description: error.message, variant: "destructive" });
+      const description =
+        error.code === "invalid_credentials"
+          ? "Invalid email or password. If you just signed up, please verify your email first."
+          : error.message;
+      toast({ title: "Error", description, variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -46,7 +52,7 @@ const Auth = () => {
   const handleGoogleLogin = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: window.location.origin },
+      options: { redirectTo: `${window.location.origin}/` },
     });
     if (error) {
       toast({ title: "Error", description: error.message, variant: "destructive" });
