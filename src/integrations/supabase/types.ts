@@ -47,6 +47,7 @@ export type Database = {
       orders: {
         Row: {
           created_at: string
+          customer_email: string | null
           estimated_delivery: string | null
           id: string
           payment_id: string | null
@@ -69,6 +70,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          customer_email?: string | null
           estimated_delivery?: string | null
           id?: string
           payment_id?: string | null
@@ -91,6 +93,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          customer_email?: string | null
           estimated_delivery?: string | null
           id?: string
           payment_id?: string | null

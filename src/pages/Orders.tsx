@@ -1,11 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { ArrowLeft, Package, Truck, CheckCircle2, Clock, MapPin } from "lucide-react";
+import { ArrowLeft, Package, Truck, CheckCircle2, Clock, MapPin, ChevronLeft, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import type { Session } from "@supabase/supabase-js";
+import type { Tables } from "@/integrations/supabase/types";
+
+const PAGE_SIZE = 10;
+const ID_SEARCH_FETCH_LIMIT = 2000;
 
 const statusSteps = [
   { key: "order_placed", label: "Order Placed", icon: Package },
@@ -13,32 +19,28 @@ const statusSteps = [
   { key: "shipped", label: "Shipped", icon: Truck },
   { key: "out_for_delivery", label: "Out for Delivery", icon: MapPin },
   { key: "delivered", label: "Delivered", icon: CheckCircle2 },
-];
+] as const;
 
 const statusIndex = (status: string) => statusSteps.findIndex((s) => s.key === status);
 
-interface Order {
-  id: string;
-  quantity: number;
-  total_amount: number;
-  status: string;
-  tracking_status: string;
-  tracking_id: string | null;
-  shipping_name: string;
-  shipping_city: string;
-  shipping_state: string;
-  shipping_pincode: string;
-  shipping_address: string;
-  shipping_phone: string;
-  payment_status: string;
-  created_at: string;
-  estimated_delivery: string | null;
-}
+type Order = Tables<"orders">;
+
+const paymentFilterOptions = [
+  { value: "", label: "All payments" },
+  { value: "pending_payment", label: "Pending payment" },
+  { value: "verified", label: "Verified" },
+  { value: "rejected", label: "Rejected" },
+] as const;
 
 const Orders = () => {
   const [session, setSession] = useState<Session | null>(null);
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
+  const [totalCount, setTotalCount] = useState(0);
+  const [page, setPage] = useState(1);
+  const [idSearch, setIdSearch] = useState("");
+  const [paymentFilter, setPaymentFilter] = useState<string>("");
+  const [trackingFilter, setTrackingFilter] = useState<string>("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -54,17 +56,77 @@ const Orders = () => {
   }, [navigate]);
 
   useEffect(() => {
+    setPage(1);
+  }, [idSearch, paymentFilter, trackingFilter]);
+
+  const fetchOrders = useCallback(async () => {
     if (!session) return;
-    const fetchOrders = async () => {
-      const { data, error } = await supabase
-        .from("orders")
-        .select("*")
-        .order("created_at", { ascending: false });
-      if (!error && data) setOrders(data as Order[]);
+    setLoading(true);
+    const uid = session.user.id;
+    const normId = idSearch.replace(/-/g, "").toLowerCase().trim();
+    const hasIdSearch = normId.length > 0;
+
+    try {
+      if (!hasIdSearch) {
+        let q = supabase
+          .from("orders")
+          .select("*", { count: "exact" })
+          .eq("user_id", uid)
+          .order("created_at", { ascending: false });
+        if (paymentFilter) q = q.eq("payment_status", paymentFilter);
+        if (trackingFilter) q = q.eq("tracking_status", trackingFilter);
+        const from = (page - 1) * PAGE_SIZE;
+        const to = from + PAGE_SIZE - 1;
+        const { data, error, count } = await q.range(from, to);
+        if (error) throw error;
+        setOrders((data ?? []) as Order[]);
+        setTotalCount(count ?? 0);
+      } else {
+        let q = supabase
+          .from("orders")
+          .select("id, created_at, payment_status, tracking_status")
+          .eq("user_id", uid)
+          .order("created_at", { ascending: false })
+          .limit(ID_SEARCH_FETCH_LIMIT);
+        if (paymentFilter) q = q.eq("payment_status", paymentFilter);
+        if (trackingFilter) q = q.eq("tracking_status", trackingFilter);
+        const { data: skinny, error } = await q;
+        if (error) throw error;
+        const filtered = (skinny ?? []).filter((row) =>
+          row.id.replace(/-/g, "").toLowerCase().includes(normId)
+        );
+        setTotalCount(filtered.length);
+        const slice = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE);
+        const ids = slice.map((r) => r.id);
+        if (ids.length === 0) {
+          setOrders([]);
+        } else {
+          const { data: full, error: fullErr } = await supabase
+            .from("orders")
+            .select("*")
+            .in("id", ids);
+          if (fullErr) throw fullErr;
+          const map = new Map((full ?? []).map((o) => [o.id, o]));
+          setOrders(ids.map((id) => map.get(id)).filter(Boolean) as Order[]);
+        }
+      }
+    } finally {
       setLoading(false);
-    };
-    fetchOrders();
-  }, [session]);
+    }
+  }, [session, page, idSearch, paymentFilter, trackingFilter]);
+
+  useEffect(() => {
+    if (!session) return;
+    void fetchOrders();
+  }, [session, fetchOrders]);
+
+  const totalPages = Math.max(1, Math.ceil(totalCount / PAGE_SIZE));
+
+  useEffect(() => {
+    if (page > totalPages) setPage(totalPages);
+  }, [page, totalPages]);
+
+  const hasActiveFilters = Boolean(paymentFilter || trackingFilter || idSearch.trim());
 
   return (
     <div className="min-h-screen bg-background">
@@ -79,10 +141,75 @@ const Orders = () => {
             initial={{ y: 12, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="text-2xl md:text-3xl font-serif text-foreground mb-8"
+            className="text-2xl md:text-3xl font-serif text-foreground mb-6"
           >
             My Orders
           </motion.h1>
+
+          <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-end mb-6">
+            <div className="flex-1 min-w-[200px]">
+              <label className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-1.5 block">Order ID</label>
+              <Input
+                placeholder="First 8 characters…"
+                value={idSearch}
+                onChange={(e) => setIdSearch(e.target.value)}
+                className="h-10 rounded-[10px]"
+              />
+            </div>
+            <div className="w-full sm:w-40">
+              <label className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-1.5 block">Payment</label>
+              <select
+                value={paymentFilter}
+                onChange={(e) => setPaymentFilter(e.target.value)}
+                className="h-10 w-full rounded-[10px] border border-input bg-background px-3 text-sm"
+              >
+                {paymentFilterOptions.map((o) => (
+                  <option key={o.value || "all"} value={o.value}>{o.label}</option>
+                ))}
+              </select>
+            </div>
+            <div className="w-full sm:w-48">
+              <label className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground mb-1.5 block">Tracking</label>
+              <select
+                value={trackingFilter}
+                onChange={(e) => setTrackingFilter(e.target.value)}
+                className="h-10 w-full rounded-[10px] border border-input bg-background px-3 text-sm"
+              >
+                <option value="">All stages</option>
+                {statusSteps.map((s) => (
+                  <option key={s.key} value={s.key}>{s.label}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {totalCount > 0 && !loading && (
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-6 text-xs font-mono text-muted-foreground">
+              <span>{totalCount} order{totalCount === 1 ? "" : "s"} · Page {page} / {totalPages}</span>
+              <div className="flex items-center gap-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  className="h-9 rounded-[10px] gap-1"
+                  disabled={page <= 1}
+                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                >
+                  <ChevronLeft className="w-4 h-4" /> Prev
+                </Button>
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  className="h-9 rounded-[10px] gap-1"
+                  disabled={page >= totalPages}
+                  onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                >
+                  Next <ChevronRight className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+          )}
 
           {loading ? (
             <div className="space-y-4">
@@ -90,23 +217,31 @@ const Orders = () => {
                 <div key={i} className="bg-card rounded-[20px] p-6 animate-pulse h-48" />
               ))}
             </div>
-          ) : orders.length === 0 ? (
+          ) : totalCount === 0 ? (
             <motion.div
               initial={{ y: 12, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               className="bg-card rounded-[20px] p-12 text-center shadow-sm"
             >
               <Package className="w-12 h-12 text-muted-foreground/40 mx-auto mb-4" />
-              <h2 className="font-serif text-xl text-foreground mb-2">No orders yet</h2>
-              <p className="text-sm text-muted-foreground mb-6">Start your hair transformation journey today.</p>
-              <Link to="/#order" className="inline-flex items-center bg-primary text-primary-foreground px-6 py-3 rounded-[12px] text-sm font-medium hover:brightness-110 transition-all active:scale-[0.98]">
-                Shop Now
-              </Link>
+              <h2 className="font-serif text-xl text-foreground mb-2">
+                {hasActiveFilters ? "No matching orders" : "No orders yet"}
+              </h2>
+              <p className="text-sm text-muted-foreground mb-6">
+                {hasActiveFilters ? "Try different filters or clear the order ID search." : "Start your hair transformation journey today."}
+              </p>
+              {!hasActiveFilters && (
+                <Link to="/#order" className="inline-flex items-center bg-primary text-primary-foreground px-6 py-3 rounded-[12px] text-sm font-medium hover:brightness-110 transition-all active:scale-[0.98]">
+                  Shop Now
+                </Link>
+              )}
             </motion.div>
           ) : (
             <div className="space-y-6">
               {orders.map((order, idx) => {
-                const currentStep = statusIndex(order.tracking_status);
+                const tracking = order.tracking_status ?? "order_placed";
+                const payment = order.payment_status ?? "";
+                const currentStep = statusIndex(tracking);
                 return (
                   <motion.div
                     key={order.id}
@@ -115,7 +250,6 @@ const Orders = () => {
                     transition={{ duration: 0.5, delay: idx * 0.08 }}
                     className="bg-card rounded-[20px] p-6 shadow-sm space-y-5"
                   >
-                    {/* Header */}
                     <div className="flex flex-wrap items-start justify-between gap-4">
                       <div>
                         <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
@@ -124,14 +258,28 @@ const Orders = () => {
                         <p className="text-xs text-muted-foreground mt-0.5">
                           Placed on {new Date(order.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}
                         </p>
+                        {payment === "pending_payment" && (
+                          <span className="inline-block mt-2 text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+                            Awaiting Payment
+                          </span>
+                        )}
+                        {payment === "verified" && (
+                          <span className="inline-block mt-2 text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                            Payment Verified
+                          </span>
+                        )}
+                        {payment === "rejected" && (
+                          <span className="inline-block mt-2 text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400">
+                            Payment Rejected — contact support
+                          </span>
+                        )}
                       </div>
                       <div className="text-right">
                         <p className="text-lg font-serif text-foreground">₹{order.total_amount}</p>
-                        <p className="text-xs text-muted-foreground">{order.quantity}x Hair Oil · {order.payment_status === "cod" ? "COD" : "Paid"}</p>
+                        <p className="text-xs text-muted-foreground">{order.quantity}x Hair Oil · UPI</p>
                       </div>
                     </div>
 
-                    {/* Tracking Steps */}
                     <div className="flex items-center justify-between gap-1">
                       {statusSteps.map((s, i) => {
                         const Icon = s.icon;
@@ -159,8 +307,16 @@ const Orders = () => {
                       })}
                     </div>
 
-                    {/* Shipping details */}
-                    <div className="pt-3 border-t border-border/30 grid sm:grid-cols-2 gap-4 text-xs text-muted-foreground">
+                    <div className="pt-3 border-t border-border/30">
+                      <Link
+                        to={`/track/${order.id}`}
+                        className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-primary hover:text-primary/80 transition-colors"
+                      >
+                        <Truck className="w-3.5 h-3.5" /> Track Order
+                      </Link>
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-4 text-xs text-muted-foreground">
                       <div>
                         <p className="font-mono uppercase tracking-wider mb-1">Shipping to</p>
                         <p className="text-foreground text-sm">{order.shipping_name}</p>

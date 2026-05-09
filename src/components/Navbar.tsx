@@ -69,7 +69,7 @@ const Navbar = () => {
                 My Orders
               </Link>
               <span className="text-xs text-muted-foreground font-mono truncate max-w-[120px]">
-                {session.user.email}
+                {session.user.user_metadata?.full_name || session.user.user_metadata?.name || session.user.email}
               </span>
               <Button variant="ghost" size="icon" className="h-8 w-8" onClick={handleLogout}>
                 <LogOut className="w-4 h-4" />
