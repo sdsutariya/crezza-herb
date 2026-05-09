@@ -5,7 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowLeft, Package, ShieldCheck, Minus, Plus, CheckCircle2, Scan } from "lucide-react";
+import { ArrowLeft, Package, ShieldCheck, Minus, Plus, CheckCircle2, Scan, Copy } from "lucide-react";
 import bottleImg from "@/assets/bottle.png";
 import qrImg from "@/assets/qr-placeholder.svg";
 import Navbar from "@/components/Navbar";
@@ -13,6 +13,39 @@ import type { Session } from "@supabase/supabase-js";
 
 const PRICE = 399;
 const MRP = 599;
+const PAYMENT_VERIFY_HOURS = 24;
+const UPI_ID = (import.meta.env.VITE_UPI_ID ?? "").trim() || null;
+const WHATSAPP_ORDER_NUMBER = (import.meta.env.VITE_WHATSAPP_ORDER_NUMBER ?? "").trim() || null;
+
+function buildUpiPayUrl(upiId: string, amount: number, shortOrderId: string): string {
+  return `upi://pay?${new URLSearchParams({
+    pa: upiId,
+    pn: "CrezzaHerb",
+    am: String(amount),
+    cu: "INR",
+    tn: `CrezzaHerb ${shortOrderId}`,
+  }).toString()}`;
+}
+
+function useIsMobile(): boolean {
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" && window.matchMedia("(max-width: 640px)").matches,
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 640px)");
+    const sync = () => setIsMobile(mq.matches);
+    mq.addEventListener("change", sync);
+    window.addEventListener("resize", sync);
+    sync();
+    return () => {
+      mq.removeEventListener("change", sync);
+      window.removeEventListener("resize", sync);
+    };
+  }, []);
+
+  return isMobile;
+}
 
 const indianStates = [
   "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
@@ -32,6 +65,7 @@ const Checkout = () => {
   const [orderId, setOrderId] = useState<string | null>(null);
   const { toast } = useToast();
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
 
   const [shipping, setShipping] = useState({
     name: "", phone: "", address: "", city: "", state: "", pincode: "",
@@ -50,6 +84,15 @@ const Checkout = () => {
   }, [navigate]);
 
   const total = PRICE * quantity;
+  const shortOrderId = orderId ? orderId.slice(0, 8).toUpperCase() : "";
+  const upiPayUrl =
+    UPI_ID && orderId ? buildUpiPayUrl(UPI_ID, total, shortOrderId) : null;
+  const whatsappProofHref =
+    WHATSAPP_ORDER_NUMBER && orderId
+      ? `https://wa.me/${WHATSAPP_ORDER_NUMBER}?text=${encodeURIComponent(
+          `Hi — order ${shortOrderId}, amount ₹${total}. Please verify my payment using the UPI success screenshot I'm attaching. Thank you.`,
+        )}`
+      : null;
 
   const validateShipping = () => {
     const { name, phone, address, city, state, pincode } = shipping;
@@ -224,8 +267,10 @@ const Checkout = () => {
                         <div className="w-2 h-2 rounded-full bg-primary" />
                       </div>
                       <div>
-                        <p className="text-sm font-medium text-foreground">UPI / QR Code Payment</p>
-                        <p className="text-xs text-muted-foreground">Scan QR and upload your payment screenshot</p>
+                        <p className="text-sm font-medium text-foreground">UPI / QR code</p>
+                        <p className="text-xs text-muted-foreground">
+                          Pay from your UPI app; our team confirms the payment before dispatch
+                        </p>
                       </div>
                       <Scan className="w-5 h-5 text-primary ml-auto" />
                     </div>
@@ -250,41 +295,161 @@ const Checkout = () => {
                   className="space-y-4"
                 >
                   <div className="bg-card rounded-[20px] p-6 md:p-8 shadow-sm space-y-6">
-                    <div className="text-center space-y-2">
-                      <h2 className="font-serif text-xl text-foreground">Scan & Pay</h2>
+                    <div className="space-y-2 text-center sm:text-left">
+                      <h2 className="font-serif text-xl text-foreground">Pay with UPI</h2>
                       <p className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
                         Order #{orderId?.slice(0, 8).toUpperCase()}
                       </p>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Send <span className="font-medium text-foreground">exactly ₹{total}</span>
+                        {isMobile
+                          ? UPI_ID
+                            ? " using Pay with UPI app below, or scan the QR if you prefer."
+                            : " using your UPI app (copy the amount below)."
+                          : ` using the QR below${UPI_ID ? " or the UPI ID." : "."}`}{" "}
+                        Confirmation is not instant—we verify each payment manually,
+                        usually within <span className="text-foreground">{PAYMENT_VERIFY_HOURS} hours</span> (often sooner). We&apos;ll email you
+                        once it&apos;s confirmed; you can also check status on <span className="text-foreground">My Orders</span>.
+                      </p>
                     </div>
 
-                    {/* QR Code */}
-                    <div className="flex flex-col items-center gap-4">
-                      <div className="p-4 bg-white rounded-[16px] shadow-sm border border-border/30">
-                        <img src={qrImg} alt="UPI Payment QR Code" className="w-48 h-48 object-contain" />
+                    {isMobile && (
+                      <div className="space-y-3">
+                        {UPI_ID && upiPayUrl ? (
+                          <>
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                              On this phone, tap Pay with UPI app instead of scanning the QR.
+                            </p>
+                            <Button className="w-full h-12 rounded-[12px] font-medium" asChild>
+                              <a href={upiPayUrl}>Pay with UPI app</a>
+                            </Button>
+                            <p className="text-[11px] text-muted-foreground leading-relaxed">
+                              The standard <span className="font-mono">upi://</span> link usually opens your UPI app on Android; on iOS you may see an app picker.
+                            </p>
+                          </>
+                        ) : (
+                          <div className="rounded-[12px] border border-border/60 bg-muted/30 p-4 space-y-3">
+                            <p className="text-xs text-muted-foreground leading-relaxed">
+                              Pay exactly <span className="font-medium text-foreground">₹{total}</span> from your UPI app. Add our UPI ID from your confirmation or contact us if you need it.
+                            </p>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              className="w-full h-11 rounded-[12px]"
+                              onClick={async () => {
+                                try {
+                                  await navigator.clipboard.writeText(String(total));
+                                  toast({ title: "Copied", description: "Amount copied to clipboard." });
+                                } catch {
+                                  toast({ title: "Could not copy", description: "Copy the amount manually.", variant: "destructive" });
+                                }
+                              }}
+                            >
+                              Copy amount (₹{total})
+                            </Button>
+                          </div>
+                        )}
+                        {whatsappProofHref && (
+                          <Button variant="outline" className="w-full h-11 rounded-[12px] font-medium" asChild>
+                            <a href={whatsappProofHref} target="_blank" rel="noopener noreferrer">
+                              Send payment screenshot on WhatsApp
+                            </a>
+                          </Button>
+                        )}
                       </div>
-                      <div className="text-center space-y-1">
+                    )}
+
+                    <div className={`flex flex-col items-center gap-4 ${isMobile ? "pt-2" : ""}`}>
+                      <p className={`text-[10px] font-mono uppercase tracking-wider text-muted-foreground ${isMobile ? "" : "hidden"}`}>
+                        Or scan QR
+                      </p>
+                      <div className="p-4 bg-white rounded-[16px] shadow-sm border border-border/30">
+                        <img
+                          src={qrImg}
+                          alt="UPI Payment QR Code"
+                          className={`${isMobile ? "w-36 h-36" : "w-48 h-48"} object-contain`}
+                        />
+                      </div>
+                      <div className="text-center space-y-1 w-full">
                         <p className="text-2xl font-serif text-foreground">₹{total}</p>
-                        <p className="text-xs text-muted-foreground font-mono">Scan with any UPI app to pay</p>
+                        <p className="text-xs text-muted-foreground font-mono uppercase tracking-wider">Scan with any UPI app</p>
                         <p className="text-xs text-muted-foreground">PhonePe · GPay · Paytm · BHIM</p>
                       </div>
                     </div>
 
+                    {UPI_ID && (
+                      <>
+                        <div className="h-px bg-border/30" />
+                        <div className="rounded-[12px] border border-border/60 bg-muted/30 p-4 space-y-3">
+                          <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">Pay to this UPI ID</p>
+                          <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                            <p className="flex-1 font-mono text-sm text-foreground break-all">{UPI_ID}</p>
+                            <Button
+                              type="button"
+                              variant="outline"
+                              size="sm"
+                              className="h-9 shrink-0 rounded-[10px] gap-1.5"
+                              onClick={async () => {
+                                try {
+                                  await navigator.clipboard.writeText(UPI_ID);
+                                  toast({ title: "Copied", description: "UPI ID copied to clipboard." });
+                                } catch {
+                                  toast({ title: "Could not copy", description: "Copy the ID manually.", variant: "destructive" });
+                                }
+                              }}
+                            >
+                              <Copy className="w-3.5 h-3.5" /> Copy
+                            </Button>
+                          </div>
+                        </div>
+                      </>
+                    )}
+
                     <div className="h-px bg-border/30" />
+
+                    <div className="space-y-3">
+                      <p className="text-xs font-mono uppercase tracking-wider text-muted-foreground">Before you continue</p>
+                      <ul className="text-sm text-muted-foreground space-y-2 list-disc pl-4 marker:text-primary/70">
+                        <li>Paid the <span className="text-foreground font-medium">exact total (₹{total})</span>—rounded or partial amounts can delay verification.</li>
+                        <li>
+                          {UPI_ID ? (
+                            isMobile ? (
+                              <>
+                                Used this order&apos;s <span className="text-foreground font-medium">Pay with UPI app</span> link,
+                                QR, or UPI ID so we can match your payment.
+                              </>
+                            ) : (
+                              <>Used this order&apos;s QR or the UPI ID above so we can match your payment.</>
+                            )
+                          ) : (
+                            <>Paid the exact total for this order so we can match your payment.</>
+                          )}
+                        </li>
+                        <li>After paying, tap below—your order stays on <span className="text-foreground">My Orders</span> until we confirm.</li>
+                      </ul>
+                    </div>
+
+                    {!isMobile && whatsappProofHref && (
+                      <Button variant="outline" className="w-full h-11 rounded-[12px] font-medium" asChild>
+                        <a href={whatsappProofHref} target="_blank" rel="noopener noreferrer">
+                          Send payment screenshot on WhatsApp
+                        </a>
+                      </Button>
+                    )}
 
                     <Button
                       className="w-full h-12 rounded-[12px] font-medium"
                       onClick={() => navigate("/orders")}
                     >
-                      I've Completed the Payment
+                      Payment sent — view order status
                     </Button>
                   </div>
 
-                  {/* Trust note */}
                   <div className="flex items-start gap-3 p-4 bg-primary/5 rounded-[12px] border border-primary/10">
                     <ShieldCheck className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    Your payment will be verified manually within a few hours. You'll receive a confirmation email once verified. Check your order status anytime on the My Orders page.
-                  </p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      No instant gateway receipt—our team matches your UPI transfer to this order. If anything looks off, we&apos;ll reach out; otherwise you&apos;ll see payment verified on My Orders and get a confirmation email.
+                    </p>
                   </div>
                 </motion.div>
               )}

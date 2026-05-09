@@ -27,7 +27,7 @@ type Order = Tables<"orders">;
 
 const paymentFilterOptions = [
   { value: "", label: "All payments" },
-  { value: "pending_payment", label: "Pending payment" },
+  { value: "pending_payment", label: "Payment pending verification" },
   { value: "verified", label: "Verified" },
   { value: "rejected", label: "Rejected" },
 ] as const;
@@ -259,9 +259,14 @@ const Orders = () => {
                           Placed on {new Date(order.created_at).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" })}
                         </p>
                         {payment === "pending_payment" && (
-                          <span className="inline-block mt-2 text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
-                            Awaiting Payment
-                          </span>
+                          <div className="mt-2 space-y-1">
+                            <span className="inline-block text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+                              Payment pending verification
+                            </span>
+                            <p className="text-xs text-muted-foreground max-w-md leading-relaxed">
+                              Next step: we match your UPI payment to this order—usually within 24 hours. No action needed unless we contact you.
+                            </p>
+                          </div>
                         )}
                         {payment === "verified" && (
                           <span className="inline-block mt-2 text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">

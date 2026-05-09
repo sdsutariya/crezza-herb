@@ -718,6 +718,9 @@ const Admin = () => {
                           <p className="text-xs text-muted-foreground">{order.quantity}x Hair Oil</p>
                         </div>
                       </div>
+                      <p className="text-xs text-muted-foreground border-b border-border/30 pb-3">
+                        UPI/QR payment—confirm the received amount matches ₹{order.total_amount} before verifying.
+                      </p>
                       <div className="grid gap-4 text-sm sm:grid-cols-2">
                         <div className="space-y-1">
                           <p className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Customer</p>

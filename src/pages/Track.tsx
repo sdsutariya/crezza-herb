@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { ArrowLeft, Package, Truck, MapPin, Clock, CheckCircle2, AlertCircle } from "lucide-react";
+import { ArrowLeft, Package, Truck, MapPin, Clock, CheckCircle2, AlertCircle, ShieldCheck } from "lucide-react";
 import Navbar from "@/components/Navbar";
 
 interface Order {
@@ -168,6 +168,23 @@ const Track = () => {
                   </div>
                 </div>
               </motion.div>
+
+              {order.payment_status === "pending_payment" && (
+                <motion.div
+                  initial={{ y: 12, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.4, delay: 0.05 }}
+                  className="flex items-start gap-3 rounded-[20px] border border-amber-500/20 bg-amber-500/5 p-4 md:p-5"
+                >
+                  <ShieldCheck className="w-4 h-4 text-amber-600 dark:text-amber-400 mt-0.5 shrink-0" />
+                  <div className="space-y-1">
+                    <p className="text-sm font-medium text-foreground">Payment pending verification</p>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      Your order is in line for a quick manual UPI check—confirmation is not instant. Delivery steps below will move forward once payment is verified (typically within 24 hours).
+                    </p>
+                  </div>
+                </motion.div>
+              )}
 
               {/* Vertical timeline */}
               <motion.div
