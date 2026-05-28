@@ -32,6 +32,7 @@ const Footer = () => {
               <a href="/#process" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Our Process</a>
               <a href="/#order" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Shop</a>
               <Link to="/faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">FAQ</Link>
+              <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Blog</Link>
             </div>
           </div>
           <div className="space-y-4">
