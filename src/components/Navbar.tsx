@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { User, LogOut, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "@/components/ThemeToggle";
+import Logo from "@/components/Logo";
 import type { Session } from "@supabase/supabase-js";
 
 const Navbar = () => {
@@ -44,9 +45,7 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/" className="font-serif text-xl tracking-tight text-foreground">
-          CrezzaHerb
-        </Link>
+        <Logo linkTo="/" size="nav" className="max-w-[62%] sm:max-w-none" />
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-6">

@@ -9,6 +9,7 @@ import { ArrowLeft, Package, ShieldCheck, Minus, Plus, CheckCircle2, Scan, Copy 
 import bottleImg from "@/assets/bottle.png";
 import qrImg from "@/assets/qr-placeholder.svg";
 import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
 import type { Session } from "@supabase/supabase-js";
 
 const PRICE = 399;
@@ -147,6 +148,12 @@ const Checkout = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Checkout - CrezzaHerb Herbal Hair Oil"
+        description="Complete your CrezzaHerb Herbal Hair Oil order with shipping details and UPI payment."
+        path="/checkout"
+        noindex
+      />
       <Navbar />
       <div className="pt-24 pb-16 px-6">
         <div className="max-w-3xl mx-auto">

@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import SEO from "@/components/SEO";
 import type { Session } from "@supabase/supabase-js";
 import type { Tables } from "@/integrations/supabase/types";
 
@@ -130,6 +131,12 @@ const Orders = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="My CrezzaHerb Orders"
+        description="View your CrezzaHerb Herbal Hair Oil order history, payment status, and delivery tracking."
+        path="/orders"
+        noindex
+      />
       <Navbar />
       <div className="pt-24 pb-16 px-6">
         <div className="max-w-3xl mx-auto">

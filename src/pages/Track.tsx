@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { ArrowLeft, Package, Truck, MapPin, Clock, CheckCircle2, AlertCircle, ShieldCheck } from "lucide-react";
 import Navbar from "@/components/Navbar";
+import SEO from "@/components/SEO";
 
 interface Order {
   id: string;
@@ -79,6 +80,12 @@ const Track = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Track CrezzaHerb Order"
+        description="Track your CrezzaHerb Herbal Hair Oil order status, payment verification, dispatch progress, and estimated delivery."
+        path={orderId ? `/track/${orderId}` : "/track"}
+        noindex
+      />
       <Navbar />
       <div className="pt-24 pb-16 px-6">
         <div className="max-w-2xl mx-auto">

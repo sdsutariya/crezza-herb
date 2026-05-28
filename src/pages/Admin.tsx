@@ -3,13 +3,15 @@ import { motion } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import {
-  Lock, CheckCircle2, XCircle, RefreshCw, LogOut, Eye,
+  CheckCircle2, XCircle, RefreshCw, LogOut, Eye,
   Package, Truck, MapPin, Clock, LayoutDashboard, IndianRupee,
   ShoppingBag, AlertCircle, ChevronLeft, ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import type { Tables } from "@/integrations/supabase/types";
+import Logo from "@/components/Logo";
+import SEO from "@/components/SEO";
 
 type OrderRow = Tables<"orders">;
 type PaymentOrder = Pick<OrderRow,
@@ -442,6 +444,12 @@ const Admin = () => {
   if (!authed) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center px-6">
+        <SEO
+          title="CrezzaHerb Admin"
+          description="Private CrezzaHerb order management dashboard."
+          path="/admin"
+          noindex
+        />
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -449,12 +457,12 @@ const Admin = () => {
           className="w-full max-w-sm"
         >
           <div className="bg-card rounded-[24px] shadow-sm border border-border/10 p-8 space-y-6">
-            <div className="text-center space-y-2">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto">
-                <Lock className="w-5 h-5 text-primary" />
-              </div>
+            <div className="text-center space-y-4">
+              <Logo variant="stacked" size="lg" className="mx-auto" />
+              <div className="space-y-2">
               <h1 className="text-2xl font-serif text-foreground">Admin Panel</h1>
               <p className="text-sm text-muted-foreground">CrezzaHerb order management</p>
+              </div>
             </div>
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="relative">
@@ -521,10 +529,16 @@ const Admin = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="CrezzaHerb Admin Dashboard"
+        description="Private CrezzaHerb order management dashboard."
+        path="/admin"
+        noindex
+      />
       <div className="sticky top-0 z-40 border-b border-border/10 bg-background/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div>
-            <p className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground">CrezzaHerb</p>
+          <div className="space-y-1">
+            <Logo size="xs" />
             <h1 className="font-serif text-xl text-foreground">Admin Panel</h1>
           </div>
           <div className="flex items-center gap-4">

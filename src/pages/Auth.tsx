@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Lock, User, ArrowLeft, Eye, EyeOff } from "lucide-react";
 import { Link } from "react-router-dom";
+import Logo from "@/components/Logo";
+import SEO from "@/components/SEO";
 
 const Auth = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -62,6 +64,12 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-6">
+      <SEO
+        title="Sign In to CrezzaHerb"
+        description="Sign in or create a CrezzaHerb account to order Herbal Hair Oil and view your order status."
+        path="/auth"
+        noindex
+      />
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -73,13 +81,16 @@ const Auth = () => {
         </Link>
 
         <div className="bg-card rounded-[24px] shadow-elevated p-8 space-y-6">
-          <div className="text-center space-y-2">
+          <div className="text-center space-y-4">
+            <Logo variant="stacked" linkTo="/" size="lg" className="mx-auto" />
+            <div className="space-y-2">
             <h1 className="text-2xl font-serif text-foreground">
               {isLogin ? "Welcome Back" : "Join CrezzaHerb"}
             </h1>
             <p className="text-sm text-muted-foreground">
               {isLogin ? "Sign in to your account" : "Create your account to order"}
             </p>
+            </div>
           </div>
 
           {/* Google Login */}

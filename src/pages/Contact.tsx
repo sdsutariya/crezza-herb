@@ -9,6 +9,27 @@ import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, Mail, Phone, MapPin, Send } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
+import { SITE_URL } from "@/lib/seo";
+
+const contactStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact CrezzaHerb",
+  url: `${SITE_URL}/contact`,
+  mainEntity: {
+    "@type": "Organization",
+    name: "CrezzaHerb",
+    email: "support@crezzaherb.com",
+    telephone: "+919876543210",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Jaipur",
+      addressRegion: "Rajasthan",
+      addressCountry: "IN",
+    },
+  },
+};
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
@@ -42,6 +63,18 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact CrezzaHerb - Herbal Hair Oil Support"
+        description="Contact CrezzaHerb for herbal hair oil questions, order support, delivery help, product guidance, and customer care in India."
+        path="/contact"
+        keywords={[
+          "contact CrezzaHerb",
+          "CrezzaHerb support",
+          "hair oil customer care",
+          "CrezzaHerb order help",
+        ]}
+        structuredData={contactStructuredData}
+      />
       <Navbar />
       <div className="pt-24 pb-16 px-6">
         <div className="max-w-5xl mx-auto">
