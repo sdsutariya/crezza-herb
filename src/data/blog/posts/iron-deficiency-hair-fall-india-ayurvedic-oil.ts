@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "iron-deficiency-hair-fall-india-ayurvedic-oil",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Combined Routine Recommendation",
         paragraphs: [
-          "Treat iron medically, eat smart, and oil consistently. CrezzaHerb Herbal Hair Oil offers bhringraj, amla, brahmi, and hibiscus in a 14-day slow-infusion at ₹399 — scalp support while your body rebuilds ferritin, not a substitute for it.",
+          "Treat iron medically, eat smart, and oil consistently. CrezzaHerb Herbal Hair Oil offers bhringraj, amla, brahmi, and hibiscus in a 14-day slow-infusion at ₹550 — scalp support while your body rebuilds ferritin, not a substitute for it.",
           "Photo-document monthly and celebrate reduced shedding before demanding full length recovery.",
         ],
       },

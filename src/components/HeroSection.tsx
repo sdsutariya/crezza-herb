@@ -5,6 +5,7 @@ import bottleImg from "@/assets/bottle.png";
 import slide1 from "@/assets/hero-slide1-problem.jpg";
 import slide2 from "@/assets/hero-slide2-ingredients.jpg";
 import slide3 from "@/assets/hero-slide3-results.jpg";
+import { formatProductPrice } from "@/lib/pricing";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -210,7 +211,7 @@ const HeroSection = () => {
                 href="#order"
                 className="group flex items-center gap-3 bg-gradient-to-r from-[#c8a860] to-[#a88940] text-[#1a1a12] px-9 py-3.5 rounded-full font-sans font-semibold text-sm tracking-wide transition-all hover:shadow-[0_0_30px_rgba(200,168,96,0.3)] hover:scale-[1.02] active:scale-[0.98]"
               >
-                Shop Now — ₹399
+                Shop Now — {formatProductPrice()}
                 <ArrowDown className="w-4 h-4 animate-bounce" />
               </a>
               <div className="flex flex-col gap-1">

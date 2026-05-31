@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "non-sticky-ayurvedic-hair-oil-daily-use",
@@ -64,7 +64,7 @@ export const blogPost: BlogPost = {
       },
       {
         q: "Is CrezzaHerb suitable as a daily non-sticky Ayurvedic option?",
-        a: "CrezzaHerb Herbal Hair Oil is formulated for regular champi with a light feel and polyherbal infusion at ₹399 — suitable for 3–4 weekly sessions without heavy residue after proper washing.",
+        a: "CrezzaHerb Herbal Hair Oil is formulated for regular champi with a light feel and polyherbal infusion at ₹550 — suitable for 3–4 weekly sessions without heavy residue after proper washing.",
       },
     ],
     sections: [
@@ -93,7 +93,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Best Non-Sticky Pick for 2026",
         paragraphs: [
-          "CrezzaHerb Herbal Hair Oil at ₹399 offers slow-infused herbs without the mineral-oil heaviness of mass-market \"Ayurvedic\" labels. Free shipping across India, 100ml glass bottle, bhringraj/amla/brahmi/hibiscus profile.",
+          "CrezzaHerb Herbal Hair Oil at ₹550 offers slow-infused herbs without the mineral-oil heaviness of mass-market \"Ayurvedic\" labels. Free shipping across India, 100ml glass bottle, bhringraj/amla/brahmi/hibiscus profile.",
           "Order at crezzaherb.com, apply consistently for 6–8 weeks, and judge by reduced shedding — not by how shiny your hair looks on oil day.",
         ],
         crezzaInsight: "Judge by reduced shedding after 6–8 weeks — not by grease on oil day.",

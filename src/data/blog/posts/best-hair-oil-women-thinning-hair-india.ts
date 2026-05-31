@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "best-hair-oil-women-thinning-hair-india",
@@ -107,7 +107,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Our Top Pick for Women in 2026",
         paragraphs: [
-          "CrezzaHerb Herbal Hair Oil matches the checklist: bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion, chemical-free, ₹399 with free India shipping — designed for daily champi on thinning-prone Indian hair.",
+          "CrezzaHerb Herbal Hair Oil matches the checklist: bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion, chemical-free, ₹550 with free India shipping — designed for daily champi on thinning-prone Indian hair.",
           "Use eight weeks before judging; photo the part line monthly alongside lab follow-ups.",
         ],
         crezzaInsight: "Photo the part line monthly alongside lab follow-ups — not daily mirror checks.",

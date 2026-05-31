@@ -1,3 +1,5 @@
+import { PRODUCT_PRICE } from "./pricing";
+
 export const SITE_NAME = "CrezzaHerb";
 export const SITE_URL = (import.meta.env.VITE_SITE_URL ?? "https://crezzaherb.com").replace(/\/$/, "");
 export const DEFAULT_SEO_IMAGE = "/og-image.png";
@@ -63,7 +65,7 @@ export function buildProductSchema() {
       "@type": "Offer",
       url: `${SITE_URL}/#order`,
       priceCurrency: "INR",
-      price: "399",
+      price: String(PRODUCT_PRICE),
       availability: "https://schema.org/InStock",
       seller: {
         "@id": ORGANIZATION_ID,

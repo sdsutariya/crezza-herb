@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "paraben-sulphate-free-hair-oil-india",
@@ -16,7 +16,7 @@ export const blogPost: BlogPost = {
     readTime: "8 min read",
     category: "Ingredients",
     excerpt: "Ingredient-conscious Indians are switching to paraben-free hair oils — here is how to read labels and choose a product that actually helps hair fall.",
-    answerSummary: "The best paraben-free and sulphate-free hair oils in India use cold-pressed base oils and whole herb infusions without mineral oil, artificial fragrance, or synthetic preservatives. Check the full INCI-style ingredient list, not just front-label claims. CrezzaHerb Herbal Hair Oil is 100% natural with no parabens, sulphates, or mineral oil at ₹399.",
+    answerSummary: "The best paraben-free and sulphate-free hair oils in India use cold-pressed base oils and whole herb infusions without mineral oil, artificial fragrance, or synthetic preservatives. Check the full INCI-style ingredient list, not just front-label claims. CrezzaHerb Herbal Hair Oil is 100% natural with no parabens, sulphates, or mineral oil at ₹550.",
     faqs: [
       {
         q: "Are parabens in hair oil dangerous?",
@@ -55,8 +55,8 @@ export const blogPost: BlogPost = {
         a: "Natural formulations may have shorter shelf life than heavily preserved products — typically 12–18 months unopened. Store away from heat and sunlight; discard if smell turns rancid. Slow-infused oils without strong preservatives need proper storage in Indian summers.",
       },
       {
-        q: "Are ₹399 Ayurvedic oils genuinely paraben-free?",
-        a: "Price does not determine purity — read labels regardless of cost. CrezzaHerb and similar mid-range Indian brands often offer paraben-free, slow-infused formulas at ₹399 with transparent herb lists. Compare ingredient order, not packaging alone.",
+        q: "Are ₹550 Ayurvedic oils genuinely paraben-free?",
+        a: "Price does not determine purity — read labels regardless of cost. CrezzaHerb and similar mid-range Indian brands often offer paraben-free, slow-infused formulas at ₹550 with transparent herb lists. Compare ingredient order, not packaging alone.",
       },
       {
         q: "Can sulphate-free routines alone fix hair fall?",

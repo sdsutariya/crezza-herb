@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "gym-sweat-hair-fall-oil-routine-india",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Oil Pick for Gym-Goers",
         paragraphs: [
-          "Active Indians need non-heavy oil they will actually use on rest days. CrezzaHerb Herbal Hair Oil — 14-day slow-infusion, bhringraj, amla, brahmi, hibiscus, ₹399 — absorbs during short champi without leaving gym-day grease traps.",
+          "Active Indians need non-heavy oil they will actually use on rest days. CrezzaHerb Herbal Hair Oil — 14-day slow-infusion, bhringraj, amla, brahmi, hibiscus, ₹550 — absorbs during short champi without leaving gym-day grease traps.",
           "Schedule oil like leg day — consistent slots beat random bottles in the gym bag.",
         ],
       },

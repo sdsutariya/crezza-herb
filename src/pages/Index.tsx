@@ -18,7 +18,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="CrezzaHerb Ayurvedic Herbal Hair Oil for Hair Fall & Growth"
-        description="Shop CrezzaHerb Herbal Hair Oil, a 14-day slow-infused Ayurvedic oil with bhringraj, amla, brahmi, and hibiscus for hair fall control, scalp nourishment, and stronger roots. ₹399, free shipping India."
+        description="Shop CrezzaHerb Herbal Hair Oil, a 14-day slow-infused Ayurvedic oil with bhringraj, amla, brahmi, and hibiscus for hair fall control, scalp nourishment, and stronger roots. ₹550, free shipping India."
         keywords={[
           "CrezzaHerb",
           "best ayurvedic hair oil India",

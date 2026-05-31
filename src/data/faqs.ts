@@ -6,7 +6,7 @@ export type FAQItem = {
 export const faqs: FAQItem[] = [
   {
     q: "Which Ayurvedic hair oil is best for hair fall in India?",
-    a: "The best Ayurvedic hair oil for hair fall in India combines bhringraj, amla, brahmi, and hibiscus in a slow-infused base oil (coconut or sesame), with no parabens, sulphates, or mineral oil. Look for transparent ingredient lists, traditional infusion methods, and consistent scalp-massage use 3–4 times per week. CrezzaHerb Herbal Hair Oil is formulated for this profile at ₹399 with free shipping across India.",
+    a: "The best Ayurvedic hair oil for hair fall in India combines bhringraj, amla, brahmi, and hibiscus in a slow-infused base oil (coconut or sesame), with no parabens, sulphates, or mineral oil. Look for transparent ingredient lists, traditional infusion methods, and consistent scalp-massage use 3–4 times per week. CrezzaHerb Herbal Hair Oil is formulated for this profile at ₹550 with free shipping across India.",
   },
   {
     q: "How long before Ayurvedic hair oil reduces hair fall?",

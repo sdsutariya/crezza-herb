@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "ayurvedic-hair-oil-vs-minoxidil-india",
@@ -28,7 +28,7 @@ export const blogPost: BlogPost = {
       },
       {
         q: "Which is cheaper long term?",
-        a: "Ayurvedic oil at ₹399 per 100ml vs monthly minoxidil bottles — oil costs less but may not replace medical treatment for advanced pattern loss.",
+        a: "Ayurvedic oil at ₹550 per 100ml vs monthly minoxidil bottles — oil costs less but may not replace medical treatment for advanced pattern loss.",
       },
       {
         q: "Is Ayurvedic hair oil better than minoxidil for hair fall in India?",
@@ -60,7 +60,7 @@ export const blogPost: BlogPost = {
       },
       {
         q: "Is Ayurvedic oil cheaper than minoxidil long term?",
-        a: "Quality Ayurvedic oil at ₹399 per month compares favourably to ongoing minoxidil costs, but they treat different problems. Cost should not be the only factor — diagnosis comes first.",
+        a: "Quality Ayurvedic oil at ₹550 per month compares favourably to ongoing minoxidil costs, but they treat different problems. Cost should not be the only factor — diagnosis comes first.",
       },
       {
         q: "Does Ayurvedic oil work on bald patches where minoxidil is used?",
@@ -93,7 +93,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Cost, Access, and Adherence in India",
         paragraphs: [
-          "Minoxidil available at pharmacies ₹300–800 monthly; requires dry scalp application twice daily for best results. Ayurvedic oil ₹399 typical; 3–4 weekly sessions fit many schedules better.",
+          "Minoxidil available at pharmacies ₹300–800 monthly; requires dry scalp application twice daily for best results. Ayurvedic oil ₹550 typical; 3–4 weekly sessions fit many schedules better.",
           "Adherence wins — unused minoxidil and unused oil both fail.",
         ],
       },
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Our Ayurvedic Side of the Equation",
         paragraphs: [
-          "If you choose oil-first, oil-only for mild fall, or minoxidil plus champi, pick a transparent blend. CrezzaHerb Herbal Hair Oil — bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion at ₹399 — is formulated for daily Indian scalp care without competing with your dermatologist's prescription plan.",
+          "If you choose oil-first, oil-only for mild fall, or minoxidil plus champi, pick a transparent blend. CrezzaHerb Herbal Hair Oil — bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion at ₹550 — is formulated for daily Indian scalp care without competing with your dermatologist's prescription plan.",
           "Honest takeaway: minoxidil for proven pattern regrowth; Ayurvedic oil for holistic scalp wellness — many Indians need both conversations with a doctor.",
         ],
       },

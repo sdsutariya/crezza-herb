@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "swimming-chlorine-hair-damage-oil-protection",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Recommended Protective Oil",
         paragraphs: [
-          "For year-round swimmers, CrezzaHerb Herbal Hair Oil — cold-pressed coconut base with bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion at ₹399 — works as pre-swim shield and post-pool recovery champi oil in one bottle.",
+          "For year-round swimmers, CrezzaHerb Herbal Hair Oil — cold-pressed coconut base with bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion at ₹550 — works as pre-swim shield and post-pool recovery champi oil in one bottle.",
           "Protect before chlorine hits; repair on rest days — both steps matter.",
         ],
       },

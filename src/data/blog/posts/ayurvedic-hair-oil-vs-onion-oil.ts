@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "ayurvedic-hair-oil-vs-onion-oil",
@@ -94,7 +94,7 @@ export const blogPost: BlogPost = {
         heading: "Which Should You Choose?",
         paragraphs: [
           "Choose onion oil if you want a targeted short-term experiment and tolerate the smell. Choose Ayurvedic oil if you want a sustainable daily/weekly Indian hair care routine with multiple herbs in one bottle.",
-          "CrezzaHerb Herbal Hair Oil at ₹399 offers the Ayurvedic path: bhringraj, amla, brahmi, hibiscus, 14-day infusion, chemical-free, free shipping.",
+          "CrezzaHerb Herbal Hair Oil at ₹550 offers the Ayurvedic path: bhringraj, amla, brahmi, hibiscus, 14-day infusion, chemical-free, free shipping.",
         ],
         crezzaInsight: "Pick Ayurvedic oil for sustainable routines; onion for short targeted experiments.",
       },

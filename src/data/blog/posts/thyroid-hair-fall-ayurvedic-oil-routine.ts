@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "thyroid-hair-fall-ayurvedic-oil-routine",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Supportive Product Choice",
         paragraphs: [
-          "Choose chemical-free polyherbal oil for long-term use beside medication. CrezzaHerb Herbal Hair Oil uses 14-day slow-infusion with bhringraj, amla, brahmi, and hibiscus at ₹399 — daily scalp support while your endocrinologist manages thyroid levels.",
+          "Choose chemical-free polyherbal oil for long-term use beside medication. CrezzaHerb Herbal Hair Oil uses 14-day slow-infusion with bhringraj, amla, brahmi, and hibiscus at ₹550 — daily scalp support while your endocrinologist manages thyroid levels.",
           "Disclaimer: This content is educational only. Follow your doctor's thyroid plan; oil supports hair wellness, not hormone correction.",
         ],
       },

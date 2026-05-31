@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "premature-grey-hair-ayurvedic-oil-india",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Honest Product Recommendation",
         paragraphs: [
-          "For scalp nourishment alongside grey acceptance or henna routines, CrezzaHerb Herbal Hair Oil combines bhringraj, amla, brahmi, and hibiscus in 14-day slow-infusion at ₹399 — supporting hair health without false blackening claims.",
+          "For scalp nourishment alongside grey acceptance or henna routines, CrezzaHerb Herbal Hair Oil combines bhringraj, amla, brahmi, and hibiscus in 14-day slow-infusion at ₹550 — supporting hair health without false blackening claims.",
           "Use two months for quality gains; colour change needs separate solutions.",
         ],
       },

@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "student-exam-stress-hair-fall-oil-routine",
@@ -24,7 +24,7 @@ export const blogPost: BlogPost = {
       },
       {
         q: "Can students afford daily salon care?",
-        a: "No need — home champi 2–3 times weekly with one ₹399 bottle lasts months when applied scalp-only.",
+        a: "No need — home champi 2–3 times weekly with one ₹550 bottle lasts months when applied scalp-only.",
       },
       {
         q: "Does oil help focus during exams?",
@@ -86,7 +86,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Budget and Dorm Logistics",
         paragraphs: [
-          "One 100ml bottle at ₹399 covers a semester at thrice-weekly use if scalp-focused. Travel-size portion for hostel weekends home.",
+          "One 100ml bottle at ₹550 covers a semester at thrice-weekly use if scalp-focused. Travel-size portion for hostel weekends home.",
           "Silicone cap optional — towel on pillow works for dry scalps.",
         ],
       },
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Affordable Oil for Students",
         paragraphs: [
-          "Students need one honest bottle, not ten influencers. CrezzaHerb Herbal Hair Oil — bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion, ₹399, free shipping — fits hostel budgets and Sunday champi rituals through exam season and recovery.",
+          "Students need one honest bottle, not ten influencers. CrezzaHerb Herbal Hair Oil — bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion, ₹550, free shipping — fits hostel budgets and Sunday champi rituals through exam season and recovery.",
           "Consistent small rituals beat crash cures when results arrive.",
         ],
       },
@@ -118,7 +118,7 @@ export const blogPost: BlogPost = {
     keyTakeaways: [
       "Exam stress shedding peaks 2–3 months after cramming — telogen lag, not instant.",
       "Sunday evening champi fits school-week schedules without greasy classrooms.",
-      "One ₹399 bottle lasts a semester with scalp-only application.",
+      "One ₹550 bottle lasts a semester with scalp-only application.",
       "Recovery continues 6–8 weeks after exams — maintain oil through holidays.",
     ],
   };

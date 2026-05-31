@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { ShieldCheck, Truck, Leaf, Package, Clock, Star } from "lucide-react";
 import bottleImg from "@/assets/bottle.png";
 import type { Session } from "@supabase/supabase-js";
+import { PRODUCT_MRP, PRODUCT_PRICE } from "@/lib/pricing";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -21,8 +22,8 @@ const OrderSection = () => {
     return () => subscription.unsubscribe();
   }, []);
 
-  const price = 399;
-  const mrp = 599;
+  const price = PRODUCT_PRICE;
+  const mrp = PRODUCT_MRP;
   const total = price * quantity;
 
   const handleOrder = () => {

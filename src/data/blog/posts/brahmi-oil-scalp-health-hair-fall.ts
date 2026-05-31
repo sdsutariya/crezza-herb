@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "brahmi-oil-scalp-health-hair-fall",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Final Take: Brahmi in Your Weekly Routine",
         paragraphs: [
-          "Brahmi earns its place in Indian hair fall routines when stress, scalp sensitivity, or circulation are part of the picture. For a balanced daily blend, CrezzaHerb Herbal Hair Oil includes brahmi alongside bhringraj, amla, and hibiscus in a 14-day slow-infusion at ₹399 — designed for consistent champi without juggling single-herb bottles.",
+          "Brahmi earns its place in Indian hair fall routines when stress, scalp sensitivity, or circulation are part of the picture. For a balanced daily blend, CrezzaHerb Herbal Hair Oil includes brahmi alongside bhringraj, amla, and hibiscus in a 14-day slow-infusion at ₹550 — designed for consistent champi without juggling single-herb bottles.",
           "Track shower shedding weekly, stay patient for 6–8 weeks, and treat brahmi as one pillar of care alongside nutrition and medical guidance when needed.",
         ],
       },

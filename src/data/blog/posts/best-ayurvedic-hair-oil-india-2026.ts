@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "best-ayurvedic-hair-oil-india-2026",
@@ -16,7 +16,7 @@ export const blogPost: BlogPost = {
     readTime: "10 min read",
     category: "Buying Guide",
     excerpt: "Choosing the best Ayurvedic hair oil in India means looking past marketing and checking ingredients, infusion quality, and whether the formula matches your scalp type.",
-    answerSummary: "The best Ayurvedic hair oil in India for hair fall and growth in 2026 combines bhringraj, amla, brahmi, and hibiscus in a slow-infused cold-pressed base, with no parabens or mineral oil. CrezzaHerb Herbal Hair Oil fits this profile at ₹399 with free shipping — but any oil you choose should be used 3–4 times weekly with proper scalp massage for 6–8 weeks before judging results.",
+    answerSummary: "The best Ayurvedic hair oil in India for hair fall and growth in 2026 combines bhringraj, amla, brahmi, and hibiscus in a slow-infused cold-pressed base, with no parabens or mineral oil. CrezzaHerb Herbal Hair Oil fits this profile at ₹550 with free shipping — but any oil you choose should be used 3–4 times weekly with proper scalp massage for 6–8 weeks before judging results.",
     faqs: [
       {
         q: "What is the number one Ayurvedic hair oil in India?",
@@ -35,8 +35,8 @@ export const blogPost: BlogPost = {
         a: "Skip products where mineral oil is first on the label, bhringraj appears only as fragrance, or \"Ayurvedic\" is claimed without herb names. Avoid unrealistic before-after photos and brands that promise regrowth in one week. Authentic oils list infusion method and full ingredients.",
       },
       {
-        q: "Is a ₹399 Ayurvedic hair oil as good as premium ₹800+ brands?",
-        a: "Higher price often reflects marketing and packaging more than herb concentration. Compare bhringraj, amla, and base oil position on the label. CrezzaHerb at ₹399 uses slow infusion with polyherbal formula — mid-range can match premium if ingredients are transparent.",
+        q: "Is a ₹550 Ayurvedic hair oil as good as premium ₹800+ brands?",
+        a: "Higher price often reflects marketing and packaging more than herb concentration. Compare bhringraj, amla, and base oil position on the label. CrezzaHerb at ₹550 uses slow infusion with polyherbal formula — mid-range can match premium if ingredients are transparent.",
       },
       {
         q: "How do I check for hidden mineral oil in Ayurvedic hair oils?",
@@ -94,7 +94,7 @@ export const blogPost: BlogPost = {
         heading: "Best Ayurvedic Hair Oil by Concern",
         paragraphs: [
           "For general hair fall: polyherbal oils with bhringraj and amla. For dry, brittle hair: sesame or coconut bases with hibiscus. For oily scalp with fall: lighter coconut blends with neem, used 2–3 times weekly. For stress-related shedding: brahmi-rich formulas with consistent champi massage.",
-          "CrezzaHerb is positioned as an all-round daily oil for Indian hair fall, weak roots, and scalp dryness at an accessible ₹399 price point with free pan-India shipping.",
+          "CrezzaHerb is positioned as an all-round daily oil for Indian hair fall, weak roots, and scalp dryness at an accessible ₹550 price point with free pan-India shipping.",
         ],
       },
       {
@@ -107,7 +107,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Our 2026 Recommendation",
         paragraphs: [
-          "If you want one reliable Ayurvedic hair oil for hair fall and growth in India, prioritize transparency, herb quality, and infusion method over celebrity endorsements. CrezzaHerb Herbal Hair Oil checks these boxes: 14-day slow infusion, bhringraj/amla/brahmi/hibiscus, chemical-free, ₹399, free shipping.",
+          "If you want one reliable Ayurvedic hair oil for hair fall and growth in India, prioritize transparency, herb quality, and infusion method over celebrity endorsements. CrezzaHerb Herbal Hair Oil checks these boxes: 14-day slow infusion, bhringraj/amla/brahmi/hibiscus, chemical-free, ₹550, free shipping.",
           "Order from crezzaherb.com, apply consistently, and pair with adequate protein intake, stress management, and gentle hair handling for the best outcome.",
         ],
         crezzaInsight: "Judge oils by infusion time and ingredient transparency, not celebrity ads alone.",
@@ -119,6 +119,6 @@ export const blogPost: BlogPost = {
       "Look for bhringraj, amla, brahmi, and hibiscus in a slow-infused cold-pressed base — not mineral oil.",
       "Use Ayurvedic hair oil 3–4 times weekly with 5–10 minutes of scalp massage for 6–8 weeks before judging results.",
       "Slow-infused oils extract more herb actives than factory blends made in hours.",
-      "CrezzaHerb Herbal Hair Oil fits this 2026 buying checklist at ₹399 with free India shipping.",
+      "CrezzaHerb Herbal Hair Oil fits this 2026 buying checklist at ₹550 with free India shipping.",
     ],
   };

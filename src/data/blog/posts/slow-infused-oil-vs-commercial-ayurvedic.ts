@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "slow-infused-oil-vs-commercial-ayurvedic",
@@ -52,7 +52,7 @@ export const blogPost: BlogPost = {
       },
       {
         q: "Why do slow-infused oils cost more than supermarket hair oils?",
-        a: "Longer production time, real herb volume, and cold-pressed bases cost more than mineral oil with trace extract. Mid-range options like ₹399 slow-infused brands balance quality and affordability for daily Indian use.",
+        a: "Longer production time, real herb volume, and cold-pressed bases cost more than mineral oil with trace extract. Mid-range options like ₹550 slow-infused brands balance quality and affordability for daily Indian use.",
       },
       {
         q: "Do slow-infused oils have shorter shelf life?",
@@ -93,7 +93,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Price vs Value",
         paragraphs: [
-          "CrezzaHerb at ₹399 with free shipping competes with mass-market prices while using artisan preparation. Premium brands charging ₹800+ may use similar infusion — compare infusion time and herb list, not packaging alone.",
+          "CrezzaHerb at ₹550 with free shipping competes with mass-market prices while using artisan preparation. Premium brands charging ₹800+ may use similar infusion — compare infusion time and herb list, not packaging alone.",
           "One 100ml bottle used 3x weekly typically lasts 6–8 weeks — calculate cost per effective application, not just sticker price.",
         ],
       },
@@ -111,6 +111,6 @@ export const blogPost: BlogPost = {
     keyTakeaways: [
       "Commercial oils are often blended in hours; slow infusion steeps herbs for days.",
       "Users switching to slow-infused oils often notice less shedding before extra shine.",
-      "CrezzaHerb uses a 14-day infusion at ₹399 — compare infusion time, not packaging price alone.",
+      "CrezzaHerb uses a 14-day infusion at ₹550 — compare infusion time, not packaging price alone.",
     ],
   };

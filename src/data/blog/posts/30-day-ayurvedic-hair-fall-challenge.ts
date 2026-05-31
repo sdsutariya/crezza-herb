@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "30-day-ayurvedic-hair-fall-challenge",
@@ -56,7 +56,7 @@ export const blogPost: BlogPost = {
       },
       {
         q: "Do I need to buy expensive oil for a 30-day challenge?",
-        a: "Quality matters more than price — choose slow-infused bhringraj-amla with transparent labels. CrezzaHerb at ₹399 lasts one month of regular use for most hair lengths. Avoid mineral-oil-heavy cheap alternatives.",
+        a: "Quality matters more than price — choose slow-infused bhringraj-amla with transparent labels. CrezzaHerb at ₹550 lasts one month of regular use for most hair lengths. Avoid mineral-oil-heavy cheap alternatives.",
       },
       {
         q: "Should I take progress photos during the 30-day challenge?",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Recommended Oil for the Challenge",
         paragraphs: [
-          "Use a transparent slow-infused blend so you know exactly what you applied for 30 days. CrezzaHerb Herbal Hair Oil with bhringraj, amla, brahmi, and hibiscus — 14-day slow-infusion, ₹399 — is built for exactly this kind of structured Indian routine.",
+          "Use a transparent slow-infused blend so you know exactly what you applied for 30 days. CrezzaHerb Herbal Hair Oil with bhringraj, amla, brahmi, and hibiscus — 14-day slow-infusion, ₹550 — is built for exactly this kind of structured Indian routine.",
           "After day 30, keep going. Stopping at one month wastes the follicle momentum you built.",
         ],
       },

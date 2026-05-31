@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "best-hair-oil-receding-hairline-men-india",
@@ -16,7 +16,7 @@ export const blogPost: BlogPost = {
     readTime: "9 min read",
     category: "Men's Hair",
     excerpt: "Indian men search for hair oils that actually work on receding temples and thinning crowns — without greasy office hair the next day.",
-    answerSummary: "The best hair oil for men with receding hairlines in India is a lightweight, non-sticky Ayurvedic blend with bhringraj and amla, applied to the hairline and crown 3–4 times weekly with 5–10 minute massage. It supports follicles that are weakening — not fully bald areas. CrezzaHerb Herbal Hair Oil is formulated for both men and women at ₹399 with a non-greasy slow-infused finish.",
+    answerSummary: "The best hair oil for men with receding hairlines in India is a lightweight, non-sticky Ayurvedic blend with bhringraj and amla, applied to the hairline and crown 3–4 times weekly with 5–10 minute massage. It supports follicles that are weakening — not fully bald areas. CrezzaHerb Herbal Hair Oil is formulated for both men and women at ₹550 with a non-greasy slow-infused finish.",
     faqs: [
       {
         q: "Can oil reverse a receding hairline?",

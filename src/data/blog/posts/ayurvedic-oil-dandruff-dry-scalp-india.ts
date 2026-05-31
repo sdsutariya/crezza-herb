@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "ayurvedic-oil-dandruff-dry-scalp-india",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Recommended Balanced Oil",
         paragraphs: [
-          "For Indians toggling between dry winters and humid monsoons, one balanced polyherbal bottle simplifies care. CrezzaHerb Herbal Hair Oil — bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion at ₹399 — supports scalp calm and root care without mineral-oil heaviness.",
+          "For Indians toggling between dry winters and humid monsoons, one balanced polyherbal bottle simplifies care. CrezzaHerb Herbal Hair Oil — bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion at ₹550 — supports scalp calm and root care without mineral-oil heaviness.",
           "Track flake type seasonally and adjust leave-in time — same bottle, smarter usage.",
         ],
       },

@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "neem-oil-dandruff-hair-fall-ayurveda",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Our Neem-Forward Recommendation",
         paragraphs: [
-          "For Indians juggling dandruff and hair fall, a balanced polyherbal oil beats pure neem for daily adherence. CrezzaHerb Herbal Hair Oil uses a 14-day slow-infusion with bhringraj, amla, brahmi, and hibiscus at ₹399 — supporting scalp calm and root care together without the harshness of undiluted neem.",
+          "For Indians juggling dandruff and hair fall, a balanced polyherbal oil beats pure neem for daily adherence. CrezzaHerb Herbal Hair Oil uses a 14-day slow-infusion with bhringraj, amla, brahmi, and hibiscus at ₹550 — supporting scalp calm and root care together without the harshness of undiluted neem.",
           "Stay consistent for 6–8 weeks, keep scalp dry between washes, and consult a dermatologist if flaking is painful or spreads beyond the hairline.",
         ],
       },

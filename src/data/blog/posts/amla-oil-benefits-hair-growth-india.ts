@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "amla-oil-benefits-hair-growth-india",
@@ -107,7 +107,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Our Recommendation for Amla-Based Hair Care",
         paragraphs: [
-          "Standalone amla oil suits targeted routines, but most Indians benefit from polyherbal blends where amla works alongside bhringraj, brahmi, and hibiscus. CrezzaHerb Herbal Hair Oil combines these botanicals in a 14-day slow-infusion at ₹399 — a practical daily option if you want amla benefits without juggling multiple bottles.",
+          "Standalone amla oil suits targeted routines, but most Indians benefit from polyherbal blends where amla works alongside bhringraj, brahmi, and hibiscus. CrezzaHerb Herbal Hair Oil combines these botanicals in a 14-day slow-infusion at ₹550 — a practical daily option if you want amla benefits without juggling multiple bottles.",
           "Apply consistently, protect hair from heat and hard water, and reassess after two months. Amla is a long-game ingredient — patience and technique matter as much as the herb itself.",
         ],
         crezzaInsight: "Most Indians benefit from amla combined with bhringraj, brahmi, and hibiscus in one daily blend.",

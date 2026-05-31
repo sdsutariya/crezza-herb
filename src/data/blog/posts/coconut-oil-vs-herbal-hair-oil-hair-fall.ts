@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "coconut-oil-vs-herbal-hair-oil-hair-fall",
@@ -56,7 +56,7 @@ export const blogPost: BlogPost = {
       },
       {
         q: "Which costs less — coconut oil or herbal hair oil?",
-        a: "Plain coconut is cheaper per litre but herbal oil at ₹399/month includes multiple herbs in one bottle — often better value for targeted fall care than buying coconut plus separate herb powders.",
+        a: "Plain coconut is cheaper per litre but herbal oil at ₹550/month includes multiple herbs in one bottle — often better value for targeted fall care than buying coconut plus separate herb powders.",
       },
       {
         q: "Should South Indians who already use coconut switch to herbal oil?",
@@ -107,7 +107,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Our Verdict for 2026",
         paragraphs: [
-          "For hair fall — not just shine — slow-infused herbal coconut oil outperforms plain coconut in most Indian routines. CrezzaHerb Herbal Hair Oil uses cold-pressed coconut as the base with bhringraj, amla, brahmi, and hibiscus via 14-day slow-infusion at ₹399 — bridging kitchen coconut familiarity with therapeutic herb depth.",
+          "For hair fall — not just shine — slow-infused herbal coconut oil outperforms plain coconut in most Indian routines. CrezzaHerb Herbal Hair Oil uses cold-pressed coconut as the base with bhringraj, amla, brahmi, and hibiscus via 14-day slow-infusion at ₹550 — bridging kitchen coconut familiarity with therapeutic herb depth.",
           "Start herbal if fall is your main concern; keep plain coconut for occasional length masking if hair is very dry.",
         ],
         crezzaInsight: "Choose herbal infusion for fall; keep plain coconut for occasional length pre-wash only.",

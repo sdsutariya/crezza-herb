@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import bottleImg from "@/assets/bottle.png";
+import { formatProductPrice } from "@/lib/pricing";
 
 type BlogCTAProps = {
   variant?: "inline" | "card";
@@ -13,7 +14,7 @@ const BlogCTA = ({ variant = "card" }: BlogCTAProps) => {
       <p className="text-sm text-muted-foreground leading-relaxed">
         Ready to start your hair care routine?{" "}
         <Link to="/#order" className="text-primary font-medium hover:underline">
-          Shop CrezzaHerb Herbal Hair Oil — ₹399
+          Shop CrezzaHerb Herbal Hair Oil — {formatProductPrice()}
         </Link>
       </p>
     );
@@ -34,7 +35,7 @@ const BlogCTA = ({ variant = "card" }: BlogCTAProps) => {
         <p className="text-sm text-muted-foreground leading-relaxed">
           14-day slow-infused Ayurvedic blend for hair fall control, stronger roots, and healthier-looking hair. 100% natural.
         </p>
-        <p className="text-lg font-serif text-foreground">₹399 · Free shipping across India</p>
+        <p className="text-lg font-serif text-foreground">{formatProductPrice()} · Free shipping across India</p>
       </div>
       <Button asChild className="h-11 rounded-[12px] shrink-0 gap-2">
         <Link to="/#order">

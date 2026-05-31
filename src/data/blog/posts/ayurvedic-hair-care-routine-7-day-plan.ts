@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "ayurvedic-hair-care-routine-7-day-plan",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Week One Complete — What Next",
         paragraphs: [
-          "Repeat the same 7-day cycle for eight weeks. Most users notice less shedding by week 4 if technique is correct. CrezzaHerb Herbal Hair Oil fits this plan with bhringraj, amla, brahmi, and hibiscus in a 14-day slow-infusion at ₹399 — one bottle for all oil days without reformulating each week.",
+          "Repeat the same 7-day cycle for eight weeks. Most users notice less shedding by week 4 if technique is correct. CrezzaHerb Herbal Hair Oil fits this plan with bhringraj, amla, brahmi, and hibiscus in a 14-day slow-infusion at ₹550 — one bottle for all oil days without reformulating each week.",
           "Adjust days around gym and swim — never leave chlorinated or sweaty scalp unwashed with heavy oil sitting overnight.",
         ],
       },

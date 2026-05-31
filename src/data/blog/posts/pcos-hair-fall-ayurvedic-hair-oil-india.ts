@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "pcos-hair-fall-ayurvedic-hair-oil-india",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Oil Choice for Long-Term PCOS Care",
         paragraphs: [
-          "Pick lightweight, chemical-free polyherbal oil you will use for months. CrezzaHerb Herbal Hair Oil — bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion, ₹399 — supports Indian women managing PCOS hair fall without adding scalp irritants.",
+          "Pick lightweight, chemical-free polyherbal oil you will use for months. CrezzaHerb Herbal Hair Oil — bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion, ₹550 — supports Indian women managing PCOS hair fall without adding scalp irritants.",
           "Disclaimer: Educational content only. PCOS requires ongoing medical care; oil supports wellness, not hormone cure.",
         ],
       },

@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "hair-fall-after-hair-color-chemical-treatment",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Recovery Oil Recommendation",
         paragraphs: [
-          "Post-color scalps need chemical-free gentle herbs. CrezzaHerb Herbal Hair Oil — bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion, ₹399 — supports Indian recovery routines without parabens that sting sensitized skin.",
+          "Post-color scalps need chemical-free gentle herbs. CrezzaHerb Herbal Hair Oil — bhringraj, amla, brahmi, hibiscus, 14-day slow-infusion, ₹550 — supports Indian recovery routines without parabens that sting sensitized skin.",
           "Pair with color-safe shampoo and patience — follicles need weeks to stabilize after chemical shock.",
         ],
       },

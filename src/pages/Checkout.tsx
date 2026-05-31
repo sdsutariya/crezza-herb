@@ -11,9 +11,10 @@ import qrImg from "@/assets/qr-placeholder.svg";
 import Navbar from "@/components/Navbar";
 import SEO from "@/components/SEO";
 import type { Session } from "@supabase/supabase-js";
+import { PRODUCT_MRP, PRODUCT_PRICE } from "@/lib/pricing";
 
-const PRICE = 399;
-const MRP = 599;
+const PRICE = PRODUCT_PRICE;
+const MRP = PRODUCT_MRP;
 const PAYMENT_VERIFY_HOURS = 24;
 const UPI_ID = (import.meta.env.VITE_UPI_ID ?? "").trim() || null;
 const WHATSAPP_ORDER_NUMBER = (import.meta.env.VITE_WHATSAPP_ORDER_NUMBER ?? "").trim() || null;

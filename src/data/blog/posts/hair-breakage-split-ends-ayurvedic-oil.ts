@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "hair-breakage-split-ends-ayurvedic-oil",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Product Pick for Breakage-Prone Hair",
         paragraphs: [
-          "Choose slow-infused polyherbal oil with hibiscus for slip and amla for strength. CrezzaHerb Herbal Hair Oil — bhringraj, amla, brahmi, hibiscus, 14-day infusion, ₹399 — suits long Indian hair routines targeting both root fall and mid-shaft snap.",
+          "Choose slow-infused polyherbal oil with hibiscus for slip and amla for strength. CrezzaHerb Herbal Hair Oil — bhringraj, amla, brahmi, hibiscus, 14-day infusion, ₹550 — suits long Indian hair routines targeting both root fall and mid-shaft snap.",
           "Combine with gentle handling — oil cannot survive daily tight top knots alone.",
         ],
       },

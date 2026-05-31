@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "hair-fall-after-covid-ayurvedic-recovery",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Supportive Care Product Note",
         paragraphs: [
-          "While follicles reset, consistent gentle care matters. CrezzaHerb Herbal Hair Oil — 14-day slow-infusion with bhringraj, amla, brahmi, hibiscus at ₹399 — supports Indian post-COVID recovery routines without harsh chemicals.",
+          "While follicles reset, consistent gentle care matters. CrezzaHerb Herbal Hair Oil — 14-day slow-infusion with bhringraj, amla, brahmi, hibiscus at ₹550 — supports Indian post-COVID recovery routines without harsh chemicals.",
           "Disclaimer: Supports scalp wellness during recovery; not a treatment for COVID or telogen effluvium cure. Consult doctors for persistent or unusual loss.",
         ],
       },

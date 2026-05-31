@@ -1,4 +1,4 @@
-import type { BlogPost } from "../types";
+﻿import type { BlogPost } from "../types";
 
 export const blogPost: BlogPost = {
     slug: "hibiscus-oil-premature-greying-india",
@@ -108,7 +108,7 @@ export const blogPost: BlogPost = {
       {
         heading: "Our Hibiscus-Inclusive Pick",
         paragraphs: [
-          "If premature greying and fall both concern you, choose a polyherbal oil where hibiscus complements bhringraj and amla rather than working alone. CrezzaHerb Herbal Hair Oil includes hibiscus in a 14-day slow-infusion with bhringraj, amla, and brahmi at ₹399 — one bottle for daily champi without kitchen prep.",
+          "If premature greying and fall both concern you, choose a polyherbal oil where hibiscus complements bhringraj and amla rather than working alone. CrezzaHerb Herbal Hair Oil includes hibiscus in a 14-day slow-infusion with bhringraj, amla, and brahmi at ₹550 — one bottle for daily champi without kitchen prep.",
           "Use consistently for two months, protect hair from sun and chlorine, and accept that colour change on existing greys requires henna or professional colour — not oil alone.",
         ],
       },
