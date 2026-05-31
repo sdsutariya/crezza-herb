@@ -5,9 +5,18 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import BlogCTA from "@/components/BlogCTA";
+import BlogArticleHero from "@/components/blog/BlogArticleHero";
+import BlogKeyTakeaways from "@/components/blog/BlogKeyTakeaways";
+import BlogTableOfContents, { slugifyHeading } from "@/components/blog/BlogTableOfContents";
+import CrezzaInsight from "@/components/blog/CrezzaInsight";
+import BlogReadingProgress from "@/components/blog/BlogReadingProgress";
 import NotFound from "@/pages/NotFound";
 import { getBlogPost, getRelatedPosts } from "@/data/blogPosts";
-import { SITE_NAME, SITE_URL } from "@/lib/seo";
+import {
+  buildBlogPostingSchema,
+  buildBreadcrumbSchema,
+  buildFAQSchema,
+} from "@/lib/seo";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -20,44 +29,32 @@ const BlogPost = () => {
   }
 
   const relatedPosts = getRelatedPosts(post.slug);
-  const articleUrl = `${SITE_URL}/blog/${post.slug}`;
+  const tocItems = post.sections.map((section) => ({
+    id: slugifyHeading(section.heading),
+    label: section.heading,
+  }));
 
-  const blogPostingSchema = {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.description,
-    image: `${SITE_URL}/og-image.png`,
-    datePublished: post.publishedAt,
-    author: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      url: SITE_URL,
-    },
-    publisher: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/og-image.png`,
-      },
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": articleUrl,
-    },
-    keywords: post.keywords.join(", "),
-  };
+  const structuredData = [
+    buildBlogPostingSchema(post),
+    buildBreadcrumbSchema([
+      { name: "Home", path: "/" },
+      { name: "Blog", path: "/blog" },
+      { name: post.title, path: `/blog/${post.slug}` },
+    ]),
+    ...(post.faqs.length > 0 ? [buildFAQSchema(post.faqs)] : []),
+  ];
 
   return (
     <div className="min-h-screen bg-background">
+      <BlogReadingProgress />
       <SEO
         title={post.title}
         description={post.description}
         path={`/blog/${post.slug}`}
         keywords={post.keywords}
         type="article"
-        structuredData={blogPostingSchema}
+        image={post.heroImage}
+        structuredData={structuredData}
       />
       <Navbar />
       <div className="pt-24 pb-16 px-6">
@@ -98,6 +95,30 @@ const BlogPost = () => {
             </div>
           </motion.header>
 
+          <BlogArticleHero
+            image={post.heroImage}
+            alt={post.heroImageAlt}
+            category={post.category}
+            caption={post.heroImageAlt}
+          />
+
+          <motion.div
+            initial={{ y: 12, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.06, ease }}
+            className="mb-8 bg-primary/5 border border-primary/10 rounded-[20px] p-6 md:p-8"
+          >
+            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary mb-3">
+              Quick Answer
+            </p>
+            <p className="text-sm md:text-base text-foreground leading-relaxed">
+              {post.answerSummary}
+            </p>
+          </motion.div>
+
+          <BlogKeyTakeaways items={post.keyTakeaways} />
+          <BlogTableOfContents items={tocItems} />
+
           <motion.div
             initial={{ y: 12, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -113,9 +134,12 @@ const BlogPost = () => {
             transition={{ duration: 0.6, delay: 0.12, ease }}
             className="bg-card rounded-[24px] border border-border/10 shadow-sm divide-y divide-border/10"
           >
-            {post.sections.map((section) => (
+            {post.sections.map((section, sectionIndex) => (
               <section key={section.heading} className="p-6 md:p-8">
-                <h2 className="text-lg md:text-xl font-serif text-foreground mb-4">
+                <h2
+                  id={slugifyHeading(section.heading)}
+                  className="text-lg md:text-xl font-serif text-foreground mb-4 scroll-mt-28"
+                >
                   {section.heading}
                 </h2>
                 <div className="space-y-4">
@@ -125,9 +149,38 @@ const BlogPost = () => {
                     </p>
                   ))}
                 </div>
+                {section.crezzaInsight && (
+                  <CrezzaInsight>{section.crezzaInsight}</CrezzaInsight>
+                )}
+                {sectionIndex === 2 && (
+                  <div className="mt-6 pt-2">
+                    <BlogCTA variant="inline" />
+                  </div>
+                )}
               </section>
             ))}
           </motion.article>
+
+          {post.faqs.length > 0 && (
+            <motion.section
+              initial={{ y: 12, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.16, ease }}
+              className="mt-8 bg-card rounded-[24px] border border-border/10 shadow-sm p-6 md:p-8"
+            >
+              <h2 className="text-lg md:text-xl font-serif text-foreground mb-6">
+                Frequently Asked Questions
+              </h2>
+              <div className="space-y-6">
+                {post.faqs.map((faq) => (
+                  <div key={faq.q}>
+                    <h3 className="text-base font-serif text-foreground mb-2">{faq.q}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{faq.a}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.section>
+          )}
 
           <motion.div
             initial={{ y: 12, opacity: 0 }}

@@ -25,6 +25,7 @@ const blogIndexStructuredData = {
     headline: post.title,
     url: `${SITE_URL}/blog/${post.slug}`,
     datePublished: post.publishedAt,
+    dateModified: post.dateModified,
   })),
 };
 
@@ -138,8 +139,18 @@ const Blog = () => {
                   >
                     <Link
                       to={`/blog/${post.slug}`}
-                      className="block bg-card rounded-[20px] border border-border/10 shadow-sm p-6 md:p-8 hover:border-primary/20 hover:shadow-md transition-all group"
+                      className="block bg-card rounded-[20px] border border-border/10 shadow-sm overflow-hidden hover:border-primary/20 hover:shadow-md transition-all group"
                     >
+                      <div className="flex flex-col sm:flex-row">
+                        <div className="sm:w-44 md:w-52 shrink-0 aspect-[16/10] sm:aspect-auto sm:min-h-[140px] overflow-hidden bg-accent/30">
+                          <img
+                            src={post.heroImage}
+                            alt={post.heroImageAlt}
+                            loading="lazy"
+                            className="h-full w-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                          />
+                        </div>
+                        <div className="p-6 md:p-8 flex-1">
                       <div className="flex flex-wrap items-center gap-3 mb-3">
                         <span className="font-mono text-[10px] uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-1 rounded-full">
                           {post.category}
@@ -160,6 +171,8 @@ const Blog = () => {
                       <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary">
                         Read article <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
                       </span>
+                        </div>
+                      </div>
                     </Link>
                   </motion.article>
                 ))}

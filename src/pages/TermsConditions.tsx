@@ -18,7 +18,7 @@ const sections = [
   },
   {
     title: "3. Pricing & Payment",
-    body: "All prices are listed in Indian Rupees (₹) and include applicable taxes. Payment is processed securely via Razorpay. We accept UPI, credit/debit cards, net banking, and wallets. Cash on Delivery (COD) is available for select pin codes.",
+    body: "All prices are listed in Indian Rupees (₹) and include applicable taxes. Payment is accepted via UPI at checkout. After placing your order, pay using the UPI ID or QR code provided. Orders are confirmed once payment is verified (typically within 24 hours on business days).",
   },
   {
     title: "4. Shipping & Delivery",

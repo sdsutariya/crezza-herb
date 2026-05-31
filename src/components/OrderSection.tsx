@@ -130,7 +130,7 @@ const OrderSection = () => {
             <div className="grid grid-cols-2 gap-4 pt-2">
               {[
                 { icon: Truck, label: "Free Shipping" },
-                { icon: Package, label: "COD Available" },
+                { icon: Package, label: "UPI Payment" },
                 { icon: Leaf, label: "100% Natural" },
                 { icon: ShieldCheck, label: "Secure Payment" },
                 { icon: Clock, label: "Ships in 24hrs" },

@@ -221,7 +221,7 @@ const HeroSection = () => {
                   <span className="text-white/80 text-xs ml-1.5 font-mono">4.9/5</span>
                 </div>
                 <span className="font-mono text-[9px] text-white/50 tracking-[0.12em] uppercase">
-                  Free shipping · COD available
+                  Free shipping · UPI payment
                 </span>
               </div>
             </motion.div>

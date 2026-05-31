@@ -14,3 +14,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://crezzaherb.com/sitemap.xml
+
+# AI content summary: https://crezzaherb.com/llms.txt

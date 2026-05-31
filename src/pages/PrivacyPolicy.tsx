@@ -18,11 +18,11 @@ const sections = [
   },
   {
     title: "3. Payment Security",
-    body: "All payment transactions are processed through Razorpay, a PCI-DSS compliant payment gateway. We do not store your credit card or banking details on our servers. Razorpay's privacy policy governs the handling of your payment information.",
+    body: "Orders are paid via UPI at checkout. You complete payment using the UPI ID or QR code shown on the checkout page. Payment verification is done manually within 24 hours on business days. We do not store your UPI PIN or full banking credentials on our servers.",
   },
   {
     title: "4. Data Sharing",
-    body: "We do not sell your personal information. We may share data with trusted third-party services for order fulfillment (shipping partners), payment processing (Razorpay), and analytics. All partners are bound by confidentiality agreements.",
+    body: "We do not sell your personal information. We may share data with trusted third-party services for order fulfillment (shipping partners), email notifications (Resend), and analytics. All partners are bound by confidentiality agreements.",
   },
   {
     title: "5. Cookies",
