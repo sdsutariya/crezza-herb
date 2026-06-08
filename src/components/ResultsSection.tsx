@@ -6,6 +6,7 @@ import week6 from "@/assets/week6-newgrowth.jpg";
 import week8 from "@/assets/week8-growth.jpg";
 import week12 from "@/assets/week12-volume.jpg";
 import week16 from "@/assets/week16-nogrey.jpg";
+import { logoGreenTextClass, sectionEyebrowClass } from "@/lib/brand";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -23,7 +24,7 @@ const phases = [
   {
     label: "Phase 2",
     title: "Grow It Back",
-    color: "text-emerald-400",
+    color: logoGreenTextClass,
     steps: [
       { image: week6, week: "Week 6", tagline: "New Growth Emerges", description: "Tiny baby hairs sprout along the hairline and temples — visible proof that the follicles are alive and responding.", punchline: "New roots. New confidence." },
       { image: week8, week: "Week 8", tagline: "Thickness Returns", description: "Hair feels denser, stronger, and more resilient. The Ayurvedic herbs have deeply penetrated the scalp, restoring its natural vitality.", punchline: "From thin to thick — nature's promise kept." },
@@ -51,7 +52,7 @@ const ResultsSection = () => {
         transition={{ duration: 0.7, ease }}
         className="space-y-4 mb-24 text-center"
       >
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+        <span className={sectionEyebrowClass}>
           Your Hair Transformation Journey
         </span>
         <h2 className="text-3xl md:text-5xl font-serif text-foreground">
@@ -112,7 +113,7 @@ const ResultsSection = () => {
 
                   {/* Content */}
                   <div className="w-full md:w-1/2 space-y-5">
-                    <span className="font-mono text-xs uppercase tracking-[0.15em] text-primary">
+                    <span className={`font-mono text-xs uppercase tracking-[0.15em] ${logoGreenTextClass}`}>
                       {step.tagline}
                     </span>
                     <p className="text-muted-foreground leading-relaxed text-sm md:text-base max-w-sm">

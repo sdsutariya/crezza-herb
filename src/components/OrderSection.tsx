@@ -7,6 +7,12 @@ import { ShieldCheck, Truck, Leaf, Package, Clock, Star } from "lucide-react";
 import bottleImg from "@/assets/bottle.png";
 import type { Session } from "@supabase/supabase-js";
 import { PRODUCT_MRP, PRODUCT_PRICE } from "@/lib/pricing";
+import {
+  logoGreenBgClass,
+  logoGreenFillClass,
+  logoGreenTextClass,
+  sectionEyebrowClass,
+} from "@/lib/brand";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -45,7 +51,7 @@ const OrderSection = () => {
           transition={{ duration: 0.7, ease }}
           className="text-center space-y-4 mb-20"
         >
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+          <span className={sectionEyebrowClass}>
             Shop Now
           </span>
           <h2 className="text-3xl md:text-5xl font-serif text-foreground">
@@ -71,7 +77,7 @@ const OrderSection = () => {
                 alt="CrezzaHerb Herbal Hair Oil 100ml"
                 className="w-56 md:w-64 object-contain drop-shadow-2xl"
               />
-              <div className="absolute -top-3 -right-3 bg-primary text-primary-foreground text-[10px] font-mono uppercase tracking-wider px-3 py-1.5 rounded-full">
+              <div className={`absolute -top-3 -right-3 ${logoGreenBgClass} text-primary-foreground text-[10px] font-mono uppercase tracking-wider px-3 py-1.5 rounded-full`}>
                 Bestseller
               </div>
             </div>
@@ -88,7 +94,7 @@ const OrderSection = () => {
             <div className="flex items-center gap-2">
               <div className="flex gap-0.5">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-primary text-primary" />
+                  <Star key={i} className={`w-4 h-4 ${logoGreenFillClass} ${logoGreenTextClass}`} />
                 ))}
               </div>
               <span className="text-xs text-muted-foreground font-mono">4.9 · 2,847 reviews</span>
@@ -97,7 +103,7 @@ const OrderSection = () => {
             <div className="flex items-baseline gap-3">
               <span className="text-4xl font-serif text-foreground">₹{price}</span>
               <span className="text-base text-muted-foreground line-through">₹{mrp}</span>
-              <span className="text-xs font-mono uppercase tracking-wider text-primary bg-primary/10 px-3 py-1 rounded-full">33% off</span>
+              <span className={`text-xs font-mono uppercase tracking-wider ${logoGreenTextClass} bg-primary/10 px-3 py-1 rounded-full`}>33% off</span>
             </div>
 
             {/* Quantity */}
@@ -122,7 +128,7 @@ const OrderSection = () => {
             {/* CTA */}
             <button
               onClick={handleOrder}
-              className="w-full bg-primary text-primary-foreground px-8 py-5 rounded-2xl font-sans font-medium text-base transition-all hover:brightness-110 active:scale-[0.98]"
+              className={`w-full ${logoGreenBgClass} text-primary-foreground px-8 py-5 rounded-2xl font-sans font-medium text-base transition-all hover:brightness-110 active:scale-[0.98]`}
             >
               {session ? `Buy Now — ₹${total}` : `Sign In to Order — ₹${total}`}
             </button>
@@ -138,7 +144,7 @@ const OrderSection = () => {
                 { icon: Star, label: "4.9★ Rated" },
               ].map(({ icon: Icon, label }) => (
                 <div key={label} className="flex items-center gap-2.5 text-xs text-muted-foreground">
-                  <Icon className="w-4 h-4 text-primary/60" />
+                  <Icon className={`w-4 h-4 ${logoGreenTextClass}`} />
                   <span className="font-mono uppercase tracking-wider">{label}</span>
                 </div>
               ))}

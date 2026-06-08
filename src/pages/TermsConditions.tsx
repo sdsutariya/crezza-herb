@@ -4,6 +4,7 @@ import { ArrowLeft, FileText } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { logoGreenTextClass, sectionEyebrowSmClass } from "@/lib/brand";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -68,10 +69,10 @@ const TermsConditions = () => {
           >
             <div className="flex items-start gap-4 mb-6">
               <div className="w-12 h-12 rounded-[14px] bg-primary/10 flex items-center justify-center shrink-0">
-                <FileText className="w-5 h-5 text-primary" />
+                <FileText className={`w-5 h-5 ${logoGreenTextClass}`} />
               </div>
               <div className="space-y-2">
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
+                <span className={sectionEyebrowSmClass}>
                   Legal
                 </span>
                 <h1 className="text-3xl md:text-4xl font-serif text-foreground">Terms & Conditions</h1>

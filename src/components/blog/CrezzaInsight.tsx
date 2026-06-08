@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Leaf } from "lucide-react";
+import { logoGreenTextClass, sectionEyebrowSmClass } from "@/lib/brand";
 
 type CrezzaInsightProps = {
   children: string;
@@ -16,9 +17,9 @@ const CrezzaInsight = ({ children }: CrezzaInsightProps) => {
       transition={{ duration: 0.5, ease }}
       className="my-5 rounded-[16px] border border-primary/20 bg-primary/5 px-5 py-4 flex gap-3"
     >
-      <Leaf className="w-4 h-4 text-primary shrink-0 mt-0.5" aria-hidden />
+      <Leaf className={`w-4 h-4 ${logoGreenTextClass} shrink-0 mt-0.5`} aria-hidden />
       <div>
-        <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-primary mb-1.5">
+        <p className={`${sectionEyebrowSmClass} tracking-[0.18em] mb-1.5`}>
           Crezza Insight
         </p>
         <p className="text-sm text-foreground leading-relaxed">{children}</p>

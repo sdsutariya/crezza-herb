@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import bottleImg from "@/assets/bottle.png";
 import { formatProductPrice } from "@/lib/pricing";
+import { logoGreenTextClass, sectionEyebrowSmClass } from "@/lib/brand";
 
 type BlogCTAProps = {
   variant?: "inline" | "card";
@@ -13,7 +14,7 @@ const BlogCTA = ({ variant = "card" }: BlogCTAProps) => {
     return (
       <p className="text-sm text-muted-foreground leading-relaxed">
         Ready to start your hair care routine?{" "}
-        <Link to="/#order" className="text-primary font-medium hover:underline">
+        <Link to="/#order" className={`${logoGreenTextClass} font-medium hover:underline`}>
           Shop CrezzaHerb Herbal Hair Oil — {formatProductPrice()}
         </Link>
       </p>
@@ -28,7 +29,7 @@ const BlogCTA = ({ variant = "card" }: BlogCTAProps) => {
         className="w-20 h-24 object-contain shrink-0"
       />
       <div className="flex-1 text-center sm:text-left space-y-2">
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
+        <p className={sectionEyebrowSmClass}>
           Recommended Product
         </p>
         <h3 className="font-serif text-lg text-foreground">CrezzaHerb Herbal Hair Oil</h3>

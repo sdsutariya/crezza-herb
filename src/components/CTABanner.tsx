@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Truck, ShieldCheck } from "lucide-react";
+import { logoGreenBgClass } from "@/lib/brand";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const CTABanner = () => {
   return (
-    <section className="relative py-16 md:py-24 px-6 bg-primary text-primary-foreground overflow-hidden">
+    <section className={`relative py-16 md:py-24 px-6 ${logoGreenBgClass} text-primary-foreground overflow-hidden`}>
       {/* Radial glow accents */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-white/[0.07] rounded-full blur-[80px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-black/[0.12] rounded-full blur-[60px] pointer-events-none" />

@@ -4,6 +4,7 @@ import amlaImg from "@/assets/amla.jpg";
 import brahmiImg from "@/assets/brahmi.jpg";
 import hibiscusImg from "@/assets/hibiscus.jpg";
 import coconutImg from "@/assets/coconut.jpg";
+import { logoGreenTextClass, sectionEyebrowClass } from "@/lib/brand";
 
 const ingredients = [
   { name: "Coconut Oil", image: coconutImg, benefit: "Deep-penetrating carrier oil rich in lauric acid. Strengthens hair shaft and prevents protein loss." },
@@ -25,7 +26,7 @@ const HerbariumSection = () => {
         transition={{ duration: 0.7, ease }}
         className="space-y-4 mb-16"
       >
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+        <span className={sectionEyebrowClass}>
           The Herbarium
         </span>
         <h2 className="text-3xl md:text-5xl font-serif text-foreground">
@@ -60,7 +61,7 @@ const HerbariumSection = () => {
                 </span>
               </div>
             </div>
-            <span className="font-mono text-xs uppercase tracking-[0.1em] text-primary block mb-2">
+            <span className={`font-mono text-xs uppercase tracking-[0.1em] ${logoGreenTextClass} block mb-2`}>
               {item.name}
             </span>
             <p className="text-xs text-muted-foreground leading-relaxed">

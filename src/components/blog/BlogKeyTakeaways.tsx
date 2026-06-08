@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
+import { logoGreenBgClass, logoGreenTextClass, sectionEyebrowSmClass } from "@/lib/brand";
 
 type BlogKeyTakeawaysProps = {
   items: string[];
@@ -18,15 +19,15 @@ const BlogKeyTakeaways = ({ items }: BlogKeyTakeawaysProps) => {
       className="mb-8 rounded-[20px] border border-primary/15 bg-card p-6 md:p-8 shadow-sm"
     >
       <div className="flex items-center gap-2 mb-4">
-        <Sparkles className="w-4 h-4 text-primary" />
-        <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
+        <Sparkles className={`w-4 h-4 ${logoGreenTextClass}`} />
+        <p className={sectionEyebrowSmClass}>
           Key Takeaways
         </p>
       </div>
       <ul className="space-y-3">
         {items.map((item) => (
           <li key={item} className="flex gap-3 text-sm text-foreground leading-relaxed">
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
+            <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${logoGreenBgClass}`} aria-hidden />
             {item}
           </li>
         ))}

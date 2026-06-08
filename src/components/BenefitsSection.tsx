@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Shield, Leaf, Zap, Heart, Eye, Droplet } from "lucide-react";
+import { logoGreenTextClass, sectionEyebrowClass } from "@/lib/brand";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -47,7 +48,7 @@ const BenefitsSection = () => {
           transition={{ duration: 0.7, ease }}
           className="text-center space-y-4 mb-20"
         >
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+          <span className={sectionEyebrowClass}>
             Why CrezzaHerb
           </span>
           <h2 className="text-3xl md:text-5xl font-serif text-foreground">
@@ -69,7 +70,7 @@ const BenefitsSection = () => {
               className="group bg-card rounded-[20px] p-8 shadow-card hover:shadow-elevated hover:-translate-y-1 hover:border-primary/20 border border-transparent transition-all duration-500"
             >
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <b.icon className="w-5 h-5 text-primary" />
+                <b.icon className={`w-5 h-5 ${logoGreenTextClass}`} />
               </div>
               <h3 className="font-serif text-lg text-foreground mb-2">{b.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{b.description}</p>

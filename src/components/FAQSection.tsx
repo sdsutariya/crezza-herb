@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   Accordion,
   AccordionContent,
@@ -6,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { faqs } from "@/data/faqs";
+import { sectionEyebrowClass } from "@/lib/brand";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -27,7 +29,7 @@ const FAQSection = ({ limit, showViewAll = false }: FAQSectionProps) => {
           transition={{ duration: 0.7, ease }}
           className="text-center space-y-4 mb-16"
         >
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+          <span className={sectionEyebrowClass}>
             Common Questions
           </span>
           <h2 className="text-3xl md:text-5xl font-serif text-foreground">
@@ -63,9 +65,9 @@ const FAQSection = ({ limit, showViewAll = false }: FAQSectionProps) => {
 
           {showViewAll && limit && limit < faqs.length && (
             <p className="text-center mt-8 text-sm text-muted-foreground">
-              <a href="/faq" className="text-primary hover:underline font-medium">
+              <Link to="/faq" className="text-primary hover:underline font-medium">
                 View all {faqs.length} questions →
-              </a>
+              </Link>
             </p>
           )}
         </motion.div>

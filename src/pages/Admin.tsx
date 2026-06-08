@@ -345,7 +345,7 @@ const Admin = () => {
                 <p style="font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;">Order Details</p>
                 <p style="font-size:18px;font-weight:600;color:#1a1a12;margin:0 0 4px;">Order #${order.id.slice(0, 8).toUpperCase()}</p>
                 <p style="color:#555;font-size:14px;margin:0 0 4px;">CrezzaHerb Herbal Hair Oil × ${order.quantity}</p>
-                <p style="font-size:20px;color:#3a6b2a;font-weight:700;margin:8px 0 0;">₹${order.total_amount}</p>
+                <p style="font-size:20px;color:hsl(97, 53%, 30%);font-weight:700;margin:8px 0 0;">₹${order.total_amount}</p>
               </div>
               <div style="background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:20px;margin:0 0 24px;">
                 <p style="font-size:12px;color:#888;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 8px;">Shipping To</p>

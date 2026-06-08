@@ -17,6 +17,7 @@ import {
   buildBreadcrumbSchema,
   buildFAQSchema,
 } from "@/lib/seo";
+import { logoGreenTextClass, sectionEyebrowSmClass } from "@/lib/brand";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -72,7 +73,7 @@ const BlogPost = () => {
             transition={{ duration: 0.6, ease }}
             className="mb-8 space-y-4"
           >
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary bg-primary/10 px-2.5 py-1 rounded-full inline-block">
+            <span className={`${sectionEyebrowSmClass} bg-primary/10 px-2.5 py-1 rounded-full inline-block`}>
               {post.category}
             </span>
             <h1 className="text-3xl md:text-4xl font-serif text-foreground leading-tight">
@@ -108,7 +109,7 @@ const BlogPost = () => {
             transition={{ duration: 0.5, delay: 0.06, ease }}
             className="mb-8 bg-primary/5 border border-primary/10 rounded-[20px] p-6 md:p-8"
           >
-            <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary mb-3">
+            <p className={`${sectionEyebrowSmClass} mb-3`}>
               Quick Answer
             </p>
             <p className="text-sm md:text-base text-foreground leading-relaxed">

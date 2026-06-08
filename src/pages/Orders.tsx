@@ -276,7 +276,7 @@ const Orders = () => {
                           </div>
                         )}
                         {payment === "verified" && (
-                          <span className="inline-block mt-2 text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                          <span className="inline-block mt-2 text-[10px] font-mono uppercase tracking-wider px-2.5 py-1 rounded-full bg-primary/10 text-primary">
                             Payment Verified
                           </span>
                         )}

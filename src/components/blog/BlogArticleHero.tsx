@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { logoGreenBgClass } from "@/lib/brand";
 
 type BlogArticleHeroProps = {
   image: string;
@@ -25,7 +26,7 @@ const BlogArticleHero = ({ image, alt, category, caption }: BlogArticleHeroProps
           loading="eager"
           fetchPriority="high"
         />
-        <span className="absolute top-4 left-4 font-mono text-[10px] uppercase tracking-[0.2em] text-primary-foreground bg-primary/90 backdrop-blur-sm px-2.5 py-1 rounded-full">
+        <span className={`absolute top-4 left-4 font-mono text-[10px] uppercase tracking-[0.2em] text-primary-foreground ${logoGreenBgClass} backdrop-blur-sm px-2.5 py-1 rounded-full`}>
           {category}
         </span>
       </div>

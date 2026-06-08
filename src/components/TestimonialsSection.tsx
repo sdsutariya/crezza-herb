@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
+import {
+  logoGreenFillClass,
+  logoGreenTextClass,
+  sectionEyebrowClass,
+} from "@/lib/brand";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -63,7 +68,7 @@ const TestimonialsSection = () => {
           transition={{ duration: 0.7, ease }}
           className="space-y-4 text-center sm:text-left flex-1"
         >
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+          <span className={sectionEyebrowClass}>
             Real Stories
           </span>
           <h2 className="text-3xl md:text-5xl font-serif text-foreground">
@@ -111,10 +116,10 @@ const TestimonialsSection = () => {
               <Quote className="absolute top-6 right-6 w-8 h-8 text-primary/10" />
               <div className="flex items-center gap-1 mb-3">
                 {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-primary text-primary" />
+                  <Star key={j} className={`w-4 h-4 ${logoGreenFillClass} ${logoGreenTextClass}`} />
                 ))}
               </div>
-              <span className="inline-block font-mono text-[10px] uppercase tracking-[0.15em] text-primary bg-primary/10 px-3 py-1 rounded-full mb-4">
+              <span className={`inline-block font-mono text-[10px] uppercase tracking-[0.15em] ${logoGreenTextClass} bg-primary/10 px-3 py-1 rounded-full mb-4`}>
                 {t.highlight}
               </span>
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">
@@ -122,7 +127,7 @@ const TestimonialsSection = () => {
               </p>
               <div className="pt-4 border-t border-border/30 flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-xs font-medium text-primary">
+                  <span className={`text-xs font-medium ${logoGreenTextClass}`}>
                     {t.name.split(" ").map(n => n[0]).join("")}
                   </span>
                 </div>

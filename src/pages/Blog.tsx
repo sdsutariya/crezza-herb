@@ -8,6 +8,7 @@ import SEO from "@/components/SEO";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { blogPosts, searchBlogPosts } from "@/data/blogPosts";
+import { logoGreenTextClass, sectionEyebrowSmClass } from "@/lib/brand";
 import { SITE_URL } from "@/lib/seo";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -77,9 +78,9 @@ const Blog = () => {
             className="text-center space-y-4 mb-10"
           >
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-[14px] bg-primary/10 mb-2">
-              <BookOpen className="w-5 h-5 text-primary" />
+              <BookOpen className={`w-5 h-5 ${logoGreenTextClass}`} />
             </div>
-            <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
+            <span className={sectionEyebrowSmClass}>
               Hair Care Blog
             </span>
             <h1 className="text-3xl md:text-4xl font-serif text-foreground">
@@ -152,7 +153,7 @@ const Blog = () => {
                         </div>
                         <div className="p-6 md:p-8 flex-1">
                       <div className="flex flex-wrap items-center gap-3 mb-3">
-                        <span className="font-mono text-[10px] uppercase tracking-wider text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+                        <span className={`font-mono text-[10px] uppercase tracking-wider ${logoGreenTextClass} bg-primary/10 px-2.5 py-1 rounded-full`}>
                           {post.category}
                         </span>
                         <span className="text-xs text-muted-foreground font-mono">

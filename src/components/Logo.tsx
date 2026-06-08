@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { logoGreenBgClass, logoGreenTextClass } from "@/lib/brand";
 import { cn } from "@/lib/utils";
 import logoIcon from "@/assets/crezzaherb-icon-transparent.png";
 
@@ -70,7 +71,7 @@ const iconOnlySizes = sizePresets({
 });
 
 const wordmarkClass =
-  "font-serif font-semibold tracking-tight text-primary leading-none whitespace-nowrap";
+  `font-serif font-semibold tracking-tight ${logoGreenTextClass} leading-none whitespace-nowrap`;
 
 const logoMaskStyle = {
   WebkitMaskImage: `url(${logoIcon})`,
@@ -92,7 +93,7 @@ type LogoMarkProps = {
 const LogoMark = ({ sizeClass, className, ariaHidden = true }: LogoMarkProps) => (
   <span
     aria-hidden={ariaHidden ? "true" : undefined}
-    className={cn("inline-block shrink-0 bg-primary", sizeClass, className)}
+    className={cn("inline-block shrink-0", logoGreenBgClass, sizeClass, className)}
     style={logoMaskStyle}
   />
 );

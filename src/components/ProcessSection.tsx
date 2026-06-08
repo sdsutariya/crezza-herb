@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
 import { Sun, Clock, Droplets, FlaskConical, CheckCircle2 } from "lucide-react";
+import {
+  logoGreenBorderClass,
+  logoGreenTextClass,
+  sectionEyebrowClass,
+  sectionEyebrowSmClass,
+} from "@/lib/brand";
 
 const ease: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
@@ -50,7 +56,7 @@ const ProcessSection = () => {
           transition={{ duration: 0.8, ease }}
           className="mb-8 space-y-4 text-center"
         >
-          <span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
+          <span className={sectionEyebrowClass}>
             Our Process
           </span>
           <h2 className="text-4xl md:text-6xl font-serif">
@@ -71,7 +77,7 @@ const ProcessSection = () => {
         >
           {["No Parabens", "No Sulphates", "No Synthetic Fragrance", "No Mineral Oil", "Cruelty Free"].map((item) => (
             <div key={item} className="flex items-center gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary" />
+              <CheckCircle2 className={`w-3.5 h-3.5 ${logoGreenTextClass}`} />
               <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-background/60">{item}</span>
             </div>
           ))}
@@ -94,8 +100,8 @@ const ProcessSection = () => {
               >
                 {/* Step indicator */}
                 <div className="relative z-10 flex-shrink-0">
-                  <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
-                    <s.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
+                  <div className={`w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary/20 border-2 ${logoGreenBorderClass} flex items-center justify-center`}>
+                    <s.icon className={`w-5 h-5 md:w-6 md:h-6 ${logoGreenTextClass}`} />
                   </div>
                 </div>
 
@@ -103,13 +109,13 @@ const ProcessSection = () => {
                 <div className="flex-1 pt-1 md:pt-3">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="font-mono text-2xl font-light text-background/20">{s.step}</span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">{s.subtitle}</span>
+                    <span className={sectionEyebrowSmClass}>{s.subtitle}</span>
                   </div>
                   <h3 className="text-xl md:text-2xl font-serif mb-3">{s.title}</h3>
                   <p className="text-background/50 leading-relaxed text-sm mb-2 max-w-lg">
                     {s.description}
                   </p>
-                  <p className="font-mono text-xs text-primary/80 italic">
+                  <p className={`font-mono text-xs ${logoGreenTextClass} italic`}>
                     {s.detail}
                   </p>
                 </div>

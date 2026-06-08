@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, ShieldCheck, Leaf, FlaskConical, Award, BadgeCheck, Star, ChevronLeft, ChevronRight } from "lucide-react";
-import bottleImg from "@/assets/bottle.png";
 import slide1 from "@/assets/hero-slide1-problem.jpg";
 import slide2 from "@/assets/hero-slide2-ingredients.jpg";
 import slide3 from "@/assets/hero-slide3-results.jpg";
@@ -114,7 +113,7 @@ const HeroSection = () => {
 
           {/* Left: Text */}
           <div className="flex-1 max-w-2xl w-full">
-            {/* Mobile: trust badges + bottle row */}
+            {/* Mobile: trust badges row */}
             <div className="flex items-start justify-between gap-4 mb-6 lg:mb-0">
               {/* Trust badges */}
               <motion.div
@@ -134,21 +133,6 @@ const HeroSection = () => {
                     </span>
                   </div>
                 ))}
-              </motion.div>
-
-              {/* Bottle — visible on mobile/tablet, hidden on lg (shown separately) */}
-              <motion.div
-                initial={{ scale: 0.85, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: 0.5, duration: 1.0, ease }}
-                className="relative flex-shrink-0 lg:hidden ml-4"
-              >
-                <div className="absolute inset-0 bg-[#c8a860]/15 rounded-full blur-[40px]" />
-                <img
-                  src={bottleImg}
-                  alt="CrezzaHerb Herbal Hair Oil bottle"
-                  className="relative w-24 sm:w-32 object-contain drop-shadow-[0_12px_30px_rgba(200,168,96,0.3)]"
-                />
               </motion.div>
             </div>
 
@@ -228,20 +212,6 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* Right: Bottle — desktop only */}
-          <motion.div
-            initial={{ scale: 0.85, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.6, duration: 1.2, ease }}
-            className="relative flex-shrink-0 hidden lg:block"
-          >
-            <div className="absolute inset-0 bg-[#c8a860]/10 rounded-full blur-[80px] scale-110" />
-            <img
-              src={bottleImg}
-              alt="CrezzaHerb Herbal Hair Oil bottle"
-              className="relative w-52 xl:w-64 object-contain drop-shadow-[0_20px_60px_rgba(200,168,96,0.25)]"
-            />
-          </motion.div>
         </div>
 
         {/* Slider controls */}
